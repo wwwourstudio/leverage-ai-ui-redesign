@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leverage AI — Redesigned</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#07080C;
+  --surface:#0F1117;
+  --surface2:#161820;
+  --surface3:#1E2029;
+  --border:#252733;
+  --border2:#2E3140;
+  --blue:#2B6FF5;
+  --blue-bright:#4A8EFF;
+  --blue-glow:rgba(43,111,245,.18);
+  --blue-dim:#1B3C7A;
+  --green:#1DB97A;
+  --green-dim:rgba(29,185,122,.12);
+  --red:#E84545;
+  --red-dim:rgba(232,69,69,.12);
+  --amber:#F5A623;
+  --amber-dim:rgba(245,166,35,.12);
+  --text:#F0F2FF;
+  --text2:#9A9DB5;
+  --text3:#4E5167;
+  --accent-gradient:linear-gradient(135deg,#2B6FF5 0%,#1B3B8A 100%);
+}
+body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;line-height:1.5;min-height:100vh;overflow-x:hidden}
+
+/* TICKER */
+.ticker-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:6px 0;overflow:hidden}
+.ticker-inner{display:flex;gap:0;white-space:nowrap;animation:ticker 40s linear infinite}
+.ticker-inner:hover{animation-play-state:paused}
+.ticker-item{display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-family:'DM Mono',monospace;font-size:11px;color:var(--text2);border-right:1px solid var(--border)}
+.ticker-item .sym{color:var(--text);font-weight:500;letter-spacing:.04em}
+.ticker-item .up{color:var(--green)}
+.ticker-item .dn{color:var(--red)}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* HEADER */
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:20px;height:56px;position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-text{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.12em;color:var(--text);line-height:1}
+.logo-badge{background:var(--blue);color:#fff;font-size:9px;font-weight:600;letter-spacing:.08em;padding:2px 6px;border-radius:3px;text-transform:uppercase;margin-top:2px}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse-dot 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
+nav{display:flex;gap:2px;flex:1;padding-left:16px}
+.nav-btn{background:none;border:none;color:var(--text2);font-size:13px;font-weight:500;padding:6px 14px;border-radius:6px;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif;letter-spacing:.01em}
+.nav-btn:hover{background:var(--surface3);color:var(--text)}
+.nav-btn.active{background:var(--surface3);color:var(--text);position:relative}
+.nav-btn.active::after{content:'';position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:16px;height:2px;background:var(--blue);border-radius:2px 2px 0 0}
+.header-right{display:flex;align-items:center;gap:12px;margin-left:auto}
+.credit-pill{display:flex;align-items:center;gap:8px;background:var(--surface3);border:1px solid var(--border2);border-radius:20px;padding:5px 12px;cursor:pointer}
+.credit-bar-wrap{width:52px;height:4px;background:var(--border2);border-radius:2px;overflow:hidden}
+.credit-bar-fill{height:100%;background:var(--blue);border-radius:2px;width:60%}
+.credit-num{font-family:'DM Mono',monospace;font-size:12px;color:var(--blue-bright);font-weight:500}
+.btn-outline{background:none;border:1px solid var(--border2);color:var(--text2);font-size:12px;font-weight:500;padding:6px 14px;border-radius:6px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s}
+.btn-outline:hover{border-color:var(--blue);color:var(--text)}
+.btn-primary{background:var(--blue);color:#fff;border:none;font-size:12px;font-weight:600;padding:6px 14px;border-radius:6px;cursor:pointer;font-family:'Inter',sans-serif;letter-spacing:.02em;transition:opacity .15s}
+.btn-primary:hover{opacity:.88}
+
+/* LAYOUT */
+.app-layout{display:grid;grid-template-columns:1fr 320px;height:calc(100vh - 88px);overflow:hidden}
+@media(max-width:900px){.app-layout{grid-template-columns:1fr}.sidebar{display:none}}
+
+/* MAIN CHAT */
+.chat-col{display:flex;flex-direction:column;overflow:hidden;border-right:1px solid var(--border)}
+.mode-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);padding:0 20px;background:var(--surface);flex-shrink:0}
+.mode-tab{display:flex;align-items:center;gap:7px;padding:12px 16px;border:none;background:none;color:var(--text2);font-size:12px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;letter-spacing:.01em}
+.mode-tab svg{opacity:.5}
+.mode-tab.active{color:var(--text);border-bottom-color:var(--blue)}
+.mode-tab.active svg{opacity:1}
+.mode-tab:hover{color:var(--text)}
+
+/* MESSAGES */
+.messages{flex:1;overflow-y:auto;padding:24px 20px;display:flex;flex-direction:column;gap:16px;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.messages::-webkit-scrollbar{width:4px}
+.messages::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+
+/* AI Welcome */
+.ai-welcome{display:flex;gap:12px;align-items:flex-start}
+.ai-avatar{width:32px;height:32px;border-radius:8px;background:var(--blue-dim);border:1px solid var(--blue-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.ai-avatar svg{color:var(--blue-bright)}
+.ai-bubble{background:var(--surface2);border:1px solid var(--border);border-radius:4px 12px 12px 12px;padding:14px 16px;flex:1;max-width:520px}
+.ai-name{font-size:11px;font-weight:600;color:var(--blue-bright);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.ai-text{color:var(--text);font-size:13.5px;line-height:1.6}
+.ai-text strong{color:var(--blue-bright);font-weight:600}
+
+/* Quick Chips */
+.quick-chips{display:flex;flex-wrap:wrap;gap:8px;padding:16px 20px;border-top:1px solid var(--border);background:var(--surface);flex-shrink:0}
+.chip{background:var(--surface3);border:1px solid var(--border2);border-radius:20px;padding:6px 14px;font-size:12px;color:var(--text2);cursor:pointer;transition:all .15s;white-space:nowrap}
+.chip:hover{border-color:var(--blue);color:var(--text);background:var(--blue-glow)}
+
+/* User message */
+.user-row{display:flex;justify-content:flex-end}
+.user-bubble{background:var(--blue-dim);border:1px solid rgba(43,111,245,.3);border-radius:12px 4px 12px 12px;padding:12px 16px;max-width:380px;font-size:13.5px;line-height:1.6;color:var(--text)}
+
+/* AI response cards */
+.data-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-top:8px}
+.data-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.data-card-title{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text2)}
+.odds-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)}
+.odds-row:last-child{border-bottom:none}
+.odds-team{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)}
+.odds-val{font-family:'DM Mono',monospace;font-size:13px;font-weight:500}
+.odds-val.fav{color:var(--green)}
+.odds-val.dog{color:var(--red)}
+.badge{font-size:10px;font-weight:600;letter-spacing:.05em;padding:2px 8px;border-radius:3px;text-transform:uppercase}
+.badge.value{background:var(--green-dim);color:var(--green)}
+.badge.hot{background:var(--red-dim);color:var(--red)}
+.badge.arb{background:var(--amber-dim);color:var(--amber)}
+
+/* INPUT BAR */
+.input-area{border-top:1px solid var(--border);background:var(--surface);padding:16px 20px;flex-shrink:0}
+.input-row{display:flex;align-items:flex-end;gap:10px;background:var(--surface3);border:1px solid var(--border2);border-radius:12px;padding:10px 14px;transition:border-color .15s}
+.input-row:focus-within{border-color:var(--blue)}
+textarea{flex:1;background:none;border:none;outline:none;color:var(--text);font-family:'Inter',sans-serif;font-size:13.5px;resize:none;line-height:1.5;max-height:120px;scrollbar-width:none}
+textarea::placeholder{color:var(--text3)}
+.input-controls{display:flex;align-items:center;gap:10px;margin-top:10px}
+.think-toggle{display:flex;align-items:center;gap:7px;cursor:pointer;background:none;border:1px solid var(--border2);border-radius:20px;padding:5px 12px;color:var(--text2);font-size:11px;font-weight:500;font-family:'Inter',sans-serif;transition:all .15s}
+.think-toggle.on{border-color:rgba(165,110,255,.4);color:#A56EFF;background:rgba(165,110,255,.08)}
+.think-toggle .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+.send-btn{background:var(--blue);border:none;border-radius:8px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:opacity .15s}
+.send-btn:hover{opacity:.85}
+.send-btn svg{color:#fff}
+.char-hint{font-size:11px;color:var(--text3);margin-left:auto}
+
+/* SIDEBAR */
+.sidebar{background:var(--surface);overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent;display:flex;flex-direction:column}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar-section{padding:16px 16px;border-bottom:1px solid var(--border)}
+.sidebar-title{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:12px}
+.market-card{background:var(--surface3);border:1px solid var(--border2);border-radius:8px;padding:12px;margin-bottom:8px;cursor:pointer;transition:border-color .15s}
+.market-card:hover{border-color:var(--blue)}
+.market-card:last-child{margin-bottom:0}
+.market-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px}
+.market-name{font-size:12px;font-weight:500;color:var(--text);line-height:1.3}
+.market-source{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace}
+.market-price{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:var(--green);line-height:1}
+.market-price.dn{color:var(--red)}
+.market-change{font-size:11px;font-weight:500}
+.market-change.up{color:var(--green)}
+.market-change.dn{color:var(--red)}
+.market-bar{height:3px;background:var(--border2);border-radius:2px;margin-top:8px;overflow:hidden}
+.market-bar-fill{height:100%;border-radius:2px;transition:width .3s}
+.market-bar-fill.yes{background:var(--green)}
+.market-bar-fill.edge{background:var(--blue)}
+
+/* PICKS */
+.pick-card{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);cursor:pointer}
+.pick-card:last-child{border-bottom:none}
+.pick-sport{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.pick-sport.nba{background:rgba(232,69,69,.15)}
+.pick-sport.nfl{background:rgba(43,111,245,.15)}
+.pick-sport.mlb{background:rgba(29,185,122,.15)}
+.pick-sport.kalshi{background:rgba(165,110,255,.15)}
+.pick-info{flex:1;min-width:0}
+.pick-name{font-size:12px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pick-sub{font-size:11px;color:var(--text2)}
+.pick-edge{font-family:'DM Mono',monospace;font-size:13px;font-weight:500}
+.pick-edge.pos{color:var(--green)}
+.pick-edge.mid{color:var(--amber)}
+
+/* BANKROLL */
+.bankroll-display{background:var(--surface3);border:1px solid var(--border2);border-radius:8px;padding:14px}
+.bankroll-amount{font-family:'Bebas Neue',monospace;font-size:32px;letter-spacing:.04em;line-height:1;color:var(--text);margin-bottom:2px}
+.bankroll-label{font-size:11px;color:var(--text2)}
+.bankroll-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.bkstat{background:var(--surface2);border-radius:6px;padding:8px 10px}
+.bkstat-val{font-family:'DM Mono',monospace;font-size:14px;font-weight:500}
+.bkstat-val.pos{color:var(--green)}
+.bkstat-val.neg{color:var(--red)}
+.bkstat-lbl{font-size:10px;color:var(--text3);margin-top:2px}
+
+/* STATUS BAR */
+.status-bar{background:var(--surface);border-top:1px solid var(--border);padding:6px 24px;display:flex;align-items:center;gap:16px}
+.status-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);font-family:'DM Mono',monospace}
+.status-dot{width:5px;height:5px;border-radius:50%}
+.status-dot.ok{background:var(--green)}
+.status-dot.warn{background:var(--amber)}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-inner" id="ticker"></div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">
+    <div>
+      <div class="logo-text">LEVERAGE</div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:-1px">
+        <div class="logo-badge">AI</div>
+        <span style="font-size:10px;color:var(--text3);font-weight:500;letter-spacing:.05em">SPORTS INTELLIGENCE</span>
+      </div>
+    </div>
+  </a>
+  <div class="live-dot" title="Live data connected"></div>
+
+  <nav>
+    <button class="nav-btn active">Chat</button>
+    <button class="nav-btn">Markets</button>
+    <button class="nav-btn">DFS Builder</button>
+    <button class="nav-btn">Portfolio</button>
+    <button class="nav-btn">Parlay Lab</button>
+  </nav>
+
+  <div class="header-right">
+    <div class="credit-pill">
+      <span style="font-size:11px;color:var(--text2);">Credits</span>
+      <div class="credit-bar-wrap"><div class="credit-bar-fill"></div></div>
+      <span class="credit-num">15</span>
+    </div>
+    <button class="btn-outline">Log in</button>
+    <button class="btn-primary">Get Started</button>
+  </div>
+</header>
+
+<!-- MAIN LAYOUT -->
+<div class="app-layout">
+
+  <!-- CHAT COLUMN -->
+  <div class="chat-col">
+
+    <!-- MODE TABS -->
+    <div class="mode-tabs">
+      <button class="mode-tab active">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="5.5" height="5.5" rx="1.5"/><rect x="8.5" y="2" width="5.5" height="5.5" rx="1.5"/><rect x="2" y="8.5" width="5.5" height="5.5" rx="1.5"/><rect x="8.5" y="8.5" width="5.5" height="5.5" rx="1.5"/></svg>
+        All Sports
+      </button>
+      <button class="mode-tab">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6"/><path d="M5 8a3 3 0 006 0"/></svg>
+        Betting
+      </button>
+      <button class="mode-tab">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 2v12M4 6l4-4 4 4M4 10l4 4 4-4"/></svg>
+        Fantasy
+      </button>
+      <button class="mode-tab">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6"/><path d="M5.5 8h5M8 5.5v5"/></svg>
+        DFS
+      </button>
+      <button class="mode-tab">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 11l4-4 3 3 5-6"/></svg>
+        Kalshi
+      </button>
+    </div>
+
+    <!-- MESSAGES -->
+    <div class="messages" id="messages">
+
+      <!-- AI Welcome -->
+      <div class="ai-welcome">
+        <div class="ai-avatar">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zM6.5 6.5A1.5 1.5 0 118 5a1.5 1.5 0 01-1.5 1.5zm3 0A1.5 1.5 0 1111 5a1.5 1.5 0 01-1.5 1.5zM8 12a4 4 0 01-3.46-2h6.92A4 4 0 018 12z"/></svg>
+        </div>
+        <div>
+          <div class="ai-bubble">
+            <div class="ai-name">Leverage AI · Grok</div>
+            <div class="ai-text">
+              Connected to <strong>live odds</strong>, <strong>Kalshi markets</strong>, Statcast, and ADP feeds.<br>
+              Ask me anything — player props, arbitrage, DFS lineups, fantasy waivers, or prediction markets.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- User message -->
+      <div class="user-row">
+        <div class="user-bubble">Find me arbitrage opportunities on tonight's NBA games — cross-platform.</div>
+      </div>
+
+      <!-- AI response with data card -->
+      <div class="ai-welcome">
+        <div class="ai-avatar">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zM6.5 6.5A1.5 1.5 0 118 5a1.5 1.5 0 01-1.5 1.5zm3 0A1.5 1.5 0 1111 5a1.5 1.5 0 01-1.5 1.5zM8 12a4 4 0 01-3.46-2h6.92A4 4 0 018 12z"/></svg>
+        </div>
+        <div style="flex:1;max-width:560px">
+          <div class="ai-bubble">
+            <div class="ai-name">Leverage AI · Grok</div>
+            <div class="ai-text">Found <strong>3 live arb windows</strong> across DraftKings, FanDuel, and Kalshi — two close in the next 18 mins. Best guaranteed ROI is <strong style="color:var(--green)">+4.2%</strong> on the Knicks spread.</div>
+          </div>
+          <div class="data-card">
+            <div class="data-card-header">
+              <span class="data-card-title">Arbitrage Opportunities · NBA · Tonight</span>
+              <span class="badge arb">3 Windows</span>
+            </div>
+            <div class="odds-row">
+              <div class="odds-team">
+                <span>Knicks -4.5</span>
+                <span class="badge value">+4.2% ROI</span>
+              </div>
+              <div style="display:flex;gap:16px;align-items:center">
+                <div style="text-align:right">
+                  <div class="odds-val fav">-108 DK</div>
+                  <div style="font-size:10px;color:var(--text3)">+112 FD</div>
+                </div>
+              </div>
+            </div>
+            <div class="odds-row">
+              <div class="odds-team">
+                <span>Celtics ML</span>
+                <span class="badge value">+2.8% ROI</span>
+              </div>
+              <div style="display:flex;gap:16px;align-items:center">
+                <div style="text-align:right">
+                  <div class="odds-val fav">-135 DK</div>
+                  <div style="font-size:10px;color:var(--text3)">+148 FD</div>
+                </div>
+              </div>
+            </div>
+            <div class="odds-row">
+              <div class="odds-team">
+                <span>Lakers o/u 224.5</span>
+                <span class="badge hot">Closing</span>
+              </div>
+              <div style="display:flex;gap:16px;align-items:center">
+                <div style="text-align:right">
+                  <div class="odds-val dog">+118 Kalshi</div>
+                  <div style="font-size:10px;color:var(--text3)">-122 DK</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUICK CHIPS -->
+    <div class="quick-chips">
+      <div class="chip">Tonight's best props</div>
+      <div class="chip">MLB correlated bets</div>
+      <div class="chip">DFS slate — NBA Mon</div>
+      <div class="chip">Kalshi market movers</div>
+      <div class="chip">Waiver wire adds</div>
+    </div>
+
+    <!-- INPUT -->
+    <div class="input-area">
+      <div class="input-row">
+        <textarea id="msgInput" rows="1" placeholder="Ask about odds, props, lineups, markets…" oninput="autoGrow(this)"></textarea>
+        <button class="send-btn" onclick="sendDemo()">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="14" y1="2" x2="2" y2="8"/><line x1="14" y1="2" x2="9" y2="14"/><line x1="2" y1="8" x2="9" y2="14"/></svg>
+        </button>
+      </div>
+      <div class="input-controls">
+        <button class="think-toggle" id="thinkToggle" onclick="toggleThink()">
+          <span class="dot"></span>
+          Think Harder
+        </button>
+        <span style="font-size:11px;color:var(--text3)">15 credits</span>
+        <span style="font-size:11px;color:var(--text3);margin-left:4px">· 1 per message, 3 with Think Harder</span>
+        <span class="char-hint" id="charHint"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <!-- BANKROLL -->
+    <div class="sidebar-section">
+      <div class="sidebar-title">Bankroll</div>
+      <div class="bankroll-display">
+        <div class="bankroll-amount">$1,240</div>
+        <div class="bankroll-label">Available balance</div>
+        <div class="bankroll-stats">
+          <div class="bkstat">
+            <div class="bkstat-val pos">+$187</div>
+            <div class="bkstat-lbl">Week P&L</div>
+          </div>
+          <div class="bkstat">
+            <div class="bkstat-val pos">+8.2%</div>
+            <div class="bkstat-lbl">ROI 30d</div>
+          </div>
+          <div class="bkstat">
+            <div class="bkstat-val" style="color:var(--text)">61%</div>
+            <div class="bkstat-lbl">Win rate</div>
+          </div>
+          <div class="bkstat">
+            <div class="bkstat-val neg">-$43</div>
+            <div class="bkstat-lbl">Open risk</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KALSHI MARKETS -->
+    <div class="sidebar-section">
+      <div class="sidebar-title">Kalshi Markets · Live</div>
+
+      <div class="market-card">
+        <div class="market-card-top">
+          <div>
+            <div class="market-name">Will Mets win 90+ games in 2025?</div>
+            <div class="market-source">KALSHI · Sports</div>
+          </div>
+          <div style="text-align:right">
+            <div class="market-price">68¢</div>
+            <div class="market-change up">↑ +3¢</div>
+          </div>
+        </div>
+        <div class="market-bar"><div class="market-bar-fill yes" style="width:68%"></div></div>
+      </div>
+
+      <div class="market-card">
+        <div class="market-card-top">
+          <div>
+            <div class="market-name">NBA Champion: OKC Thunder</div>
+            <div class="market-source">KALSHI · NBA</div>
+          </div>
+          <div style="text-align:right">
+            <div class="market-price">31¢</div>
+            <div class="market-change up">↑ +5¢</div>
+          </div>
+        </div>
+        <div class="market-bar"><div class="market-bar-fill yes" style="width:31%"></div></div>
+      </div>
+
+      <div class="market-card">
+        <div class="market-card-top">
+          <div>
+            <div class="market-name">Saquon Barkley 1,500+ rush yds</div>
+            <div class="market-source">KALSHI · NFL</div>
+          </div>
+          <div style="text-align:right">
+            <div class="market-price dn">44¢</div>
+            <div class="market-change dn">↓ -2¢</div>
+          </div>
+        </div>
+        <div class="market-bar"><div class="market-bar-fill yes" style="width:44%"></div></div>
+      </div>
+    </div>
+
+    <!-- TODAY'S PICKS -->
+    <div class="sidebar-section">
+      <div class="sidebar-title">AI Value Picks · Today</div>
+
+      <div class="pick-card">
+        <div class="pick-sport nba">🏀</div>
+        <div class="pick-info">
+          <div class="pick-name">Knicks -4.5 · FanDuel</div>
+          <div class="pick-sub">Implied 58% · Model 64%</div>
+        </div>
+        <div class="pick-edge pos">+6% edge</div>
+      </div>
+
+      <div class="pick-card">
+        <div class="pick-sport mlb">⚾</div>
+        <div class="pick-info">
+          <div class="pick-name">Ohtani K prop o/u 8.5</div>
+          <div class="pick-sub">Implied 49% · Model 57%</div>
+        </div>
+        <div class="pick-edge pos">+8% edge</div>
+      </div>
+
+      <div class="pick-card">
+        <div class="pick-sport kalshi">📈</div>
+        <div class="pick-info">
+          <div class="pick-name">Mets 90+ wins</div>
+          <div class="pick-sub">Implied 68% · Model 74%</div>
+        </div>
+        <div class="pick-edge mid">+6% edge</div>
+      </div>
+
+      <div class="pick-card">
+        <div class="pick-sport nfl">🏈</div>
+        <div class="pick-info">
+          <div class="pick-name">Mahomes passing yds o229.5</div>
+          <div class="pick-sub">Implied 52% · Model 61%</div>
+        </div>
+        <div class="pick-edge pos">+9% edge</div>
+      </div>
+    </div>
+
+    <!-- LIVE ODDS FEED -->
+    <div class="sidebar-section" style="border-bottom:none;flex:1">
+      <div class="sidebar-title">Live Odds · NBA Tonight</div>
+      <div style="font-size:11px;color:var(--text3);margin-bottom:10px;font-family:'DM Mono',monospace">DraftKings · Last updated 14s ago</div>
+
+      <div style="display:flex;flex-direction:column;gap:1px">
+        <div style="display:grid;grid-template-columns:1fr auto auto auto;gap:8px;padding:8px 0;border-bottom:1px solid var(--border);font-size:11px;color:var(--text3);font-weight:600;letter-spacing:.05em">
+          <span>GAME</span><span>SPREAD</span><span>ML</span><span>O/U</span>
+        </div>
+        <div class="live-game-row" style="display:grid;grid-template-columns:1fr auto auto auto;gap:8px;padding:9px 0;border-bottom:1px solid var(--border);align-items:center">
+          <div>
+            <div style="font-size:12px;font-weight:500;color:var(--text)">NYK @ BOS</div>
+            <div style="font-size:10px;color:var(--text3)">7:30 PM ET</div>
+          </div>
+          <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--text2)">-4.5</span>
+          <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--green)">-115</span>
+          <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--text2)">224.5</span>
+        </div>
+        <div class="live-game-row" style="display:grid;grid-template-columns:1fr auto auto auto;gap:8px;padding:9px 0;border-bottom:1px solid var(--border);align-items:center">
+          <div>
+            <div style="font-size:12px;font-weight:500;color:var(--text)">LAL @ DEN</div>
+            <div style="font-size:10px;color:var(--text3)">9:00 PM ET</div>
+          </div>
+          <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--text2)">+3.5</span>
+          <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--red)">+140</span>
+          <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--text2)">231.0</span>
+        </div>
+        <div class="live-game-row" style="display:grid;grid-template-columns:1fr auto auto auto;gap:8px;padding:9px 0;align-items:center">
+          <div>
+            <div style="font-size:12px;font-weight:500;color:var(--text)">GSW @ PHX</div>
+            <div style="font-size:10px;color:var(--text3)">10:00 PM ET</div>
+          </div>
+          <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--text2)">-2.0</span>
+          <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--green)">-128</span>
+          <span style="font-family:'DM Mono',monospace;font-size:12px;color:var(--text2)">228.5</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- STATUS BAR -->
+<div class="status-bar">
+  <div class="status-item"><div class="status-dot ok"></div>Odds API</div>
+  <div class="status-item"><div class="status-dot ok"></div>Kalshi</div>
+  <div class="status-item"><div class="status-dot ok"></div>Statcast</div>
+  <div class="status-item"><div class="status-dot ok"></div>Grok</div>
+  <div class="status-item"><div class="status-dot warn"></div>ADP (stale 6h)</div>
+  <div style="margin-left:auto;font-size:11px;color:var(--text3);font-family:'DM Mono',monospace">Mon Apr 13 · 7:14 PM CT</div>
+</div>
+
+<script>
+// TICKER DATA
+const tickerData=[
+  {sym:'NYK',label:'Knicks ML',val:'-115',dir:'up'},
+  {sym:'BOS',label:'Celtics -4.5',val:'-108',dir:'dn'},
+  {sym:'OKC',label:'Thunder Champion',val:'31¢ Kalshi',dir:'up'},
+  {sym:'OHT',label:'Ohtani K8.5',val:'Over -118',dir:'up'},
+  {sym:'LAL',label:'Lakers o/u',val:'231.0',dir:''},
+  {sym:'MET',label:'Mets 90 wins',val:'68¢',dir:'up'},
+  {sym:'DEN',label:'Nuggets -3.5',val:'-112',dir:'dn'},
+  {sym:'KCH',label:'Mahomes Yds',val:'o229.5 -115',dir:'up'},
+  {sym:'PHI',label:'Eagles SB odds',val:'14¢',dir:'dn'},
+  {sym:'GSW',label:'Warriors ML',val:'-128',dir:'up'},
+];
+const ticker=document.getElementById('ticker');
+const allItems=[...tickerData,...tickerData];
+ticker.innerHTML=allItems.map(t=>`<span class="ticker-item"><span class="sym">${t.sym}</span><span>${t.label}</span><span class="${t.dir==='up'?'up':t.dir==='dn'?'dn':''}">${t.val}</span></span>`).join('');
+
+// NAV tabs
+document.querySelectorAll('.nav-btn').forEach(b=>{
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// Mode tabs
+document.querySelectorAll('.mode-tab').forEach(b=>{
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.mode-tab').forEach(x=>x.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// Think harder toggle
+let thinkOn=false;
+function toggleThink(){
+  thinkOn=!thinkOn;
+  document.getElementById('thinkToggle').classList.toggle('on',thinkOn);
+}
+
+// Auto grow textarea
+function autoGrow(el){
+  el.style.height='auto';
+  el.style.height=Math.min(el.scrollHeight,120)+'px';
+  document.getElementById('charHint').textContent=el.value.length?el.value.length+' chars':'';
+}
+
+// Quick chips
+document.querySelectorAll('.chip').forEach(c=>{
+  c.addEventListener('click',function(){
+    document.getElementById('msgInput').value=this.textContent;
+    autoGrow(document.getElementById('msgInput'));
+    document.getElementById('msgInput').focus();
+  });
+});
+
+// Send demo
+function sendDemo(){
+  const inp=document.getElementById('msgInput');
+  const val=inp.value.trim();
+  if(!val)return;
+  const msgs=document.getElementById('messages');
+  const userDiv=document.createElement('div');
+  userDiv.className='user-row';
+  userDiv.innerHTML=`<div class="user-bubble">${val}</div>`;
+  msgs.appendChild(userDiv);
+
+  const typing=document.createElement('div');
+  typing.className='ai-welcome';
+  typing.innerHTML=`<div class="ai-avatar"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zM6.5 6.5A1.5 1.5 0 118 5a1.5 1.5 0 01-1.5 1.5zm3 0A1.5 1.5 0 1111 5a1.5 1.5 0 01-1.5 1.5zM8 12a4 4 0 01-3.46-2h6.92A4 4 0 018 12z"/></svg></div><div class="ai-bubble"><div class="ai-name">Leverage AI · Grok</div><div class="ai-text" style="color:var(--text3)">Analyzing…</div></div>`;
+  msgs.appendChild(typing);
+  msgs.scrollTop=msgs.scrollHeight;
+  inp.value=''; autoGrow(inp);
+
+  setTimeout(()=>{
+    typing.querySelector('.ai-text').style.color='';
+    typing.querySelector('.ai-text').textContent='Here\'s what I found based on live data. Check the sidebar for updated market prices and today\'s AI picks.';
+    msgs.scrollTop=msgs.scrollHeight;
+    // Decrement credit
+    const cn=document.querySelector('.credit-num');
+    const cur=parseInt(cn.textContent);
+    if(cur>0){cn.textContent=cur-(thinkOn?3:1);}
+    const fill=document.querySelector('.credit-bar-fill');
+    fill.style.width=(parseInt(cn.textContent)/25*100)+'%';
+  },1800);
+}
+
+// Enter to send
+document.getElementById('msgInput').addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendDemo();}
+});
+
+// Live odds flash
+setInterval(()=>{
+  document.querySelectorAll('.live-game-row').forEach(r=>{
+    if(Math.random()<.2){
+      r.style.background='rgba(43,111,245,.06)';
+      setTimeout(()=>r.style.background='',600);
+    }
+  });
+},3000);
+</script>
+</body>
+</html>
