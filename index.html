@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leverage AI — Sports Intelligence</title>
+<title>Leverage AI — Trading Intelligence</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -144,7 +144,7 @@ textarea::placeholder{color:var(--text3)}
 .obtn{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;padding:5px 11px;border-radius:5px;border:1px solid var(--border2);background:var(--surface3);cursor:pointer;color:var(--text2);transition:all .14s;min-width:72px}
 .obtn:hover{border-color:var(--blue);color:var(--text);background:var(--blue-glow)}
 .obtn.best{border-color:rgba(29,185,122,.4);color:var(--green);background:var(--green-dim)}
-/* BET SLIP */
+/* ORDER TICKET */
 .bslip{position:fixed;bottom:30px;right:20px;width:268px;background:var(--surface2);border:1px solid var(--border2);border-radius:11px;overflow:hidden;z-index:200;box-shadow:0 8px 40px rgba(0,0,0,.7)}
 .bsh{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-bottom:1px solid var(--border);background:var(--surface);cursor:pointer}
 .bsh-title{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text)}
@@ -157,7 +157,7 @@ textarea::placeholder{color:var(--text3)}
 .sinp{flex:1;background:var(--surface3);border:1px solid var(--border2);border-radius:6px;padding:6px 9px;color:var(--text);font-family:'DM Mono',monospace;font-size:13px;outline:none;transition:border-color .14s;width:100%;margin-bottom:8px}
 .sinp:focus{border-color:var(--blue)}
 
-/* ===== DFS ===== */
+/* ===== SCANNER ===== */
 .dfs-wrap{display:grid;grid-template-columns:1fr 268px;flex:1;overflow:hidden}
 .dfs-main{display:flex;flex-direction:column;overflow:hidden}
 .dfs-tb{display:flex;align-items:center;gap:10px;padding:11px 18px;border-bottom:1px solid var(--border);background:var(--surface);flex-shrink:0;flex-wrap:wrap}
@@ -176,15 +176,15 @@ textarea::placeholder{color:var(--text3)}
 .prow2:hover{background:var(--surface2)}
 .prow2.sel{background:rgba(43,111,245,.07)}
 .ppos{font-family:'DM Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.05em;padding:2px 5px;border-radius:3px;color:#fff;flex-shrink:0}
-.pp-pg,.pp-SG,.pp-G{background:#3A6FD4}
-.pp-SF,.pp-PF,.pp-F{background:#2A8D5A}
-.pp-C{background:#884DB5}.pp-UTIL{background:#6B4D88}
-.pp-SP,.pp-RP,.pp-P{background:#D44444}
-.pp-1B,.pp-2B,.pp-3B,.pp-SS,.pp-OF{background:#D4883A}
+.pp-CALL{background:#2A8D5A}
+.pp-PUT{background:#D44444}
+.pp-SPREAD{background:#3A6FD4}
+.pp-STRANGLE{background:#A56EFF}
+.pp-COVERED{background:#D4883A}
 .addbtn{background:var(--surface3);border:1px solid var(--border2);border-radius:4px;padding:3px 9px;font-size:11px;font-weight:600;color:var(--text2);cursor:pointer;font-family:'Inter',sans-serif;transition:all .14s}
 .addbtn:hover{border-color:var(--green);color:var(--green);background:var(--green-dim)}
 .addbtn.added{border-color:var(--green);color:var(--green);background:var(--green-dim)}
-/* DFS sidebar */
+/* Scanner sidebar */
 .dfs-sd{background:var(--surface);border-left:1px solid var(--border);overflow-y:auto;display:flex;flex-direction:column}
 .lslot{display:flex;align-items:center;gap:8px;padding:7px 9px;background:var(--surface3);border:1px solid var(--border2);border-radius:6px;margin-bottom:5px;min-height:42px}
 .lspos{font-family:'DM Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.05em;width:30px;flex-shrink:0;color:var(--text3)}
@@ -219,7 +219,7 @@ textarea::placeholder{color:var(--text3)}
 .oblive{display:inline-flex;align-items:center;gap:3px;background:var(--red-dim);color:var(--red);font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 6px;border-radius:3px}
 .oblive::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--red);animation:pdot 1.4s ease-in-out infinite}
 
-/* ===== PARLAY LAB ===== */
+/* ===== STRATEGY BUILDER ===== */
 .pl-wrap{display:grid;grid-template-columns:1fr 306px;flex:1;overflow:hidden}
 .pl-main{overflow-y:auto;padding:18px 20px}
 .pl-card{background:var(--surface2);border:1px solid var(--border);border-radius:9px;margin-bottom:14px}
@@ -264,16 +264,16 @@ textarea::placeholder{color:var(--text3)}
   <div style="display:flex;align-items:center;gap:6px;flex-shrink:0">
     <div>
       <div class="logo-text">LEVERAGE</div>
-      <div style="display:flex;align-items:center;gap:4px;margin-top:-2px"><div class="logo-badge">AI</div><span style="font-size:9px;color:var(--text3);font-weight:600;letter-spacing:.06em">SPORTS INTELLIGENCE</span></div>
+      <div style="display:flex;align-items:center;gap:4px;margin-top:-2px"><div class="logo-badge">AI</div><span style="font-size:9px;color:var(--text3);font-weight:600;letter-spacing:.06em">TRADING INTELLIGENCE</span></div>
     </div>
   </div>
   <div class="live-dot"></div>
   <nav>
     <button class="nb active" onclick="showPg('chat',this)">Chat</button>
     <button class="nb" onclick="showPg('markets',this)">Markets</button>
-    <button class="nb" onclick="showPg('dfs',this)">DFS Builder</button>
+    <button class="nb" onclick="showPg('scanner',this)">Scanner</button>
     <button class="nb" onclick="showPg('portfolio',this)">Portfolio</button>
-    <button class="nb" onclick="showPg('parlay',this)">Parlay Lab</button>
+    <button class="nb" onclick="showPg('strategy',this)">Strategy Builder</button>
   </nav>
   <div class="hdr-right">
     <div class="credit-pill"><span style="font-size:11px;color:var(--text2)">Credits</span><div class="cbw"><div class="cbf" id="cbf"></div></div><span class="cnum" id="cnum">15</span></div>
@@ -288,67 +288,67 @@ textarea::placeholder{color:var(--text3)}
   <div class="chat-wrap" style="flex:1;overflow:hidden">
     <div class="chat-col">
       <div class="mtabs">
-        <button class="mt active" onclick="setMT(this)">All Sports</button>
-        <button class="mt" onclick="setMT(this)">Betting</button>
-        <button class="mt" onclick="setMT(this)">Fantasy</button>
-        <button class="mt" onclick="setMT(this)">DFS</button>
-        <button class="mt" onclick="setMT(this)">Kalshi</button>
+        <button class="mt active" onclick="setMT(this)">All Markets</button>
+        <button class="mt" onclick="setMT(this)">Stocks</button>
+        <button class="mt" onclick="setMT(this)">Options</button>
+        <button class="mt" onclick="setMT(this)">Crypto</button>
+        <button class="mt" onclick="setMT(this)">Futures</button>
       </div>
       <div class="msgs" id="msgs">
         <div class="ai-row">
           <div class="av"><svg width="13" height="13" viewBox="0 0 16 16" fill="var(--blue-bright)"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm-1.5 5.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm3 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zM8 12a4 4 0 01-3.46-2h6.92A4 4 0 018 12z"/></svg></div>
-          <div><div class="ab"><div class="aname">Leverage AI · Grok</div><div class="atext">Connected to <strong>live odds</strong>, <strong>Kalshi markets</strong>, Statcast and ADP feeds. Ask me about betting odds, player props, DFS lineups, fantasy strategy, or prediction markets.</div></div></div>
+          <div><div class="ab"><div class="aname">Leverage AI · Claude</div><div class="atext">Connected to <strong>live market data</strong>, <strong>CBOE options feeds</strong>, TradingView charts, and Options Alpha signals. Ask me about options strategies, technical analysis, contract screening, Greeks exposure, or portfolio hedging.</div></div></div>
         </div>
-        <div class="ur"><div class="ub">Find me arbitrage on tonight's NBA games across all platforms.</div></div>
+        <div class="ur"><div class="ub">Find me high-IV opportunities in tech options expiring this week.</div></div>
         <div class="ai-row">
           <div class="av"><svg width="13" height="13" viewBox="0 0 16 16" fill="var(--blue-bright)"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm-1.5 5.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm3 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zM8 12a4 4 0 01-3.46-2h6.92A4 4 0 018 12z"/></svg></div>
           <div style="flex:1;max-width:500px">
-            <div class="ab"><div class="aname">Leverage AI · Grok</div><div class="atext">Found <strong>3 live arb windows</strong> across DraftKings, FanDuel, and Kalshi. Best guaranteed ROI is <strong>+4.2%</strong> on the Knicks spread — window closes in ~18 min.</div></div>
-            <div class="dc"><div class="dch"><span class="dct">Arbitrage · NBA · Tonight</span><span class="badge arb">3 Windows</span></div>
-              <div class="or"><div style="display:flex;align-items:center;gap:7px;font-size:12px">Knicks -4.5<span class="badge val">+4.2% ROI</span></div><div style="text-align:right"><div class="mono" style="font-size:12px;color:var(--green)">-108 DK</div><div style="font-size:10px;color:var(--text3)">+112 FD</div></div></div>
-              <div class="or"><div style="display:flex;align-items:center;gap:7px;font-size:12px">Celtics ML<span class="badge val">+2.8% ROI</span></div><div style="text-align:right"><div class="mono" style="font-size:12px;color:var(--green)">-135 DK</div><div style="font-size:10px;color:var(--text3)">+148 FD</div></div></div>
-              <div class="or"><div style="display:flex;align-items:center;gap:7px;font-size:12px">Lakers o/u 224.5<span class="badge hot">Closing</span></div><div style="text-align:right"><div class="mono" style="font-size:12px;color:var(--red)">+118 Kalshi</div><div style="font-size:10px;color:var(--text3)">-122 DK</div></div></div>
+            <div class="ab"><div class="aname">Leverage AI · Claude</div><div class="atext">Found <strong>3 high-IV setups</strong> with favorable risk/reward. Best opportunity is <strong>AAPL $190 Call</strong> — IV rank 74%, PoP 58%, edge +4.2%.</div></div>
+            <div class="dc"><div class="dch"><span class="dct">High-IV Opportunities · Tech · Today</span><span class="badge arb">3 Setups</span></div>
+              <div class="or"><div style="display:flex;align-items:center;gap:7px;font-size:12px">AAPL $190 Call<span class="badge val">+4.2% Edge</span></div><div style="text-align:right"><div class="mono" style="font-size:12px;color:var(--green)">$3.40 IBKR</div><div style="font-size:10px;color:var(--text3)">$3.60 TD</div></div></div>
+              <div class="or"><div style="display:flex;align-items:center;gap:7px;font-size:12px">NVDA $870 Call<span class="badge val">+2.8% Edge</span></div><div style="text-align:right"><div class="mono" style="font-size:12px;color:var(--green)">$14.20 IBKR</div><div style="font-size:10px;color:var(--text3)">$14.50 TD</div></div></div>
+              <div class="or"><div style="display:flex;align-items:center;gap:7px;font-size:12px">QQQ $448 Put<span class="badge hot">Closing</span></div><div style="text-align:right"><div class="mono" style="font-size:12px;color:var(--red)">$4.20 Tasty</div><div style="font-size:10px;color:var(--text3)">IV rank 71%</div></div></div>
             </div>
           </div>
         </div>
       </div>
       <div class="chips">
-        <div class="chip" onclick="chipC(this)">Tonight's best props</div>
-        <div class="chip" onclick="chipC(this)">MLB correlated bets</div>
-        <div class="chip" onclick="chipC(this)">DFS slate — NBA Mon</div>
-        <div class="chip" onclick="chipC(this)">Kalshi market movers</div>
-        <div class="chip" onclick="chipC(this)">Waiver wire adds</div>
+        <div class="chip" onclick="chipC(this)">Find high-IV opportunities</div>
+        <div class="chip" onclick="chipC(this)">Analyze SPY technicals</div>
+        <div class="chip" onclick="chipC(this)">Scan LEAPS for income</div>
+        <div class="chip" onclick="chipC(this)">BTC options chain</div>
+        <div class="chip" onclick="chipC(this)">Hedge my portfolio</div>
       </div>
       <div class="inp-area">
-        <div class="inp-row"><textarea id="msginp" rows="1" placeholder="Ask about odds, props, lineups, markets…" oninput="ag(this)"></textarea><button class="sbtn" onclick="sendMsg()"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="14" y1="2" x2="2" y2="8"/><line x1="14" y1="2" x2="9" y2="14"/><line x1="2" y1="8" x2="9" y2="14"/></svg></button></div>
+        <div class="inp-row"><textarea id="msginp" rows="1" placeholder="Ask about options strategies, Greeks, technicals, screeners…" oninput="ag(this)"></textarea><button class="sbtn" onclick="sendMsg()"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="14" y1="2" x2="2" y2="8"/><line x1="14" y1="2" x2="9" y2="14"/><line x1="2" y1="8" x2="9" y2="14"/></svg></button></div>
         <div class="ictrls"><button class="thtog" id="thtog" onclick="togTh()"><span class="dot"></span>Think Harder</button><span style="font-size:11px;color:var(--text3)">15 credits · 1/msg · 3 w/ Think Harder</span></div>
       </div>
     </div>
     <div class="csd">
       <div class="csd-s">
-        <div class="sec-title" style="margin-bottom:9px">Bankroll</div>
+        <div class="sec-title" style="margin-bottom:9px">Buying Power</div>
         <div style="background:var(--surface3);border:1px solid var(--border2);border-radius:7px;padding:11px">
-          <div class="bkamt">$1,240</div><div style="font-size:11px;color:var(--text2)">Available balance</div>
+          <div class="bkamt">$12,400</div><div style="font-size:11px;color:var(--text2)">Available buying power</div>
           <div class="bkg">
-            <div class="bkc"><div class="bkv p">+$187</div><div class="bkl">Week P&L</div></div>
+            <div class="bkc"><div class="bkv p">+$1,870</div><div class="bkl">Week P&L</div></div>
             <div class="bkc"><div class="bkv p">+8.2%</div><div class="bkl">ROI 30d</div></div>
-            <div class="bkc"><div class="bkv" style="color:var(--text)">61%</div><div class="bkl">Win rate</div></div>
-            <div class="bkc"><div class="bkv n">-$43</div><div class="bkl">Open risk</div></div>
+            <div class="bkc"><div class="bkv" style="color:var(--text)">61%</div><div class="bkl">PoP avg</div></div>
+            <div class="bkc"><div class="bkv n">-$430</div><div class="bkl">Open risk</div></div>
           </div>
         </div>
       </div>
       <div class="csd-s">
-        <div class="sec-title" style="margin-bottom:9px">Kalshi · Live</div>
-        <div class="mcard"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><div><div style="font-size:11px;font-weight:500;color:var(--text)">Mets win 90+ games</div><div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace">KALSHI · MLB</div></div><div style="text-align:right"><div class="mprice">68¢</div><div style="font-size:10px;color:var(--green);font-weight:500">↑ +3¢</div></div></div><div class="mbar"><div class="mbarfill" style="width:68%"></div></div></div>
-        <div class="mcard"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><div><div style="font-size:11px;font-weight:500;color:var(--text)">NBA Champion: OKC</div><div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace">KALSHI · NBA</div></div><div style="text-align:right"><div class="mprice">31¢</div><div style="font-size:10px;color:var(--green);font-weight:500">↑ +5¢</div></div></div><div class="mbar"><div class="mbarfill" style="width:31%"></div></div></div>
-        <div class="mcard"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><div><div style="font-size:11px;font-weight:500;color:var(--text)">Saquon 1,500+ rush yds</div><div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace">KALSHI · NFL</div></div><div style="text-align:right"><div class="mprice dn">44¢</div><div style="font-size:10px;color:var(--red);font-weight:500">↓ -2¢</div></div></div><div class="mbar"><div class="mbarfill" style="width:44%"></div></div></div>
+        <div class="sec-title" style="margin-bottom:9px">Live Market Alerts</div>
+        <div class="mcard"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><div><div style="font-size:11px;font-weight:500;color:var(--text)">VIX Spike &gt;20 Alert</div><div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace">CBOE · Volatility</div></div><div style="text-align:right"><div class="mprice">18.4</div><div style="font-size:10px;color:var(--green);font-weight:500">↑ +2.1</div></div></div><div class="mbar"><div class="mbarfill" style="width:68%"></div></div></div>
+        <div class="mcard"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><div><div style="font-size:11px;font-weight:500;color:var(--text)">FOMC Decision Tomorrow</div><div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace">Fed · Macro Event</div></div><div style="text-align:right"><div class="mprice">68%</div><div style="font-size:10px;color:var(--green);font-weight:500">↑ +5%</div></div></div><div class="mbar"><div class="mbarfill" style="width:31%"></div></div></div>
+        <div class="mcard"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><div><div style="font-size:11px;font-weight:500;color:var(--text)">NVDA Earnings This Week</div><div style="font-size:10px;color:var(--text3);font-family:'DM Mono',monospace">Options Alert</div></div><div style="text-align:right"><div class="mprice dn">IV 74%</div><div style="font-size:10px;color:var(--red);font-weight:500">↓ -3%</div></div></div><div class="mbar"><div class="mbarfill" style="width:44%"></div></div></div>
       </div>
       <div class="csd-s" style="border-bottom:none;flex:1">
         <div class="sec-title" style="margin-bottom:9px">AI Value Picks · Today</div>
-        <div class="prow"><div class="picon" style="background:rgba(232,69,69,.15)">🏀</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Knicks -4.5 · FanDuel</div><div style="font-size:10px;color:var(--text2)">Implied 58% · Model 64%</div></div><div class="mono" style="font-size:12px;font-weight:500;color:var(--green)">+6%</div></div>
-        <div class="prow"><div class="picon" style="background:rgba(29,185,122,.15)">⚾</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Ohtani K prop o8.5</div><div style="font-size:10px;color:var(--text2)">Implied 49% · Model 57%</div></div><div class="mono" style="font-size:12px;font-weight:500;color:var(--green)">+8%</div></div>
-        <div class="prow"><div class="picon" style="background:rgba(165,110,255,.15)">📈</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Mets 90+ wins (Kalshi)</div><div style="font-size:10px;color:var(--text2)">Implied 68% · Model 74%</div></div><div class="mono" style="font-size:12px;font-weight:500;color:var(--amber)">+6%</div></div>
-        <div class="prow"><div class="picon" style="background:rgba(43,111,245,.15)">🏈</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Mahomes pass yds o229.5</div><div style="font-size:10px;color:var(--text2)">Implied 52% · Model 61%</div></div><div class="mono" style="font-size:12px;font-weight:500;color:var(--green)">+9%</div></div>
+        <div class="prow"><div class="picon" style="background:rgba(43,111,245,.15)">📊</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">AAPL $190 Call · IBKR</div><div style="font-size:10px;color:var(--text2)">PoP implied 58% · Model 64%</div></div><div class="mono" style="font-size:12px;font-weight:500;color:var(--green)">+6%</div></div>
+        <div class="prow"><div class="picon" style="background:rgba(232,69,69,.15)">📉</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">TSLA $170 Put · Tastytrade</div><div style="font-size:10px;color:var(--text2)">PoP implied 49% · Model 57%</div></div><div class="mono" style="font-size:12px;font-weight:500;color:var(--green)">+8%</div></div>
+        <div class="prow"><div class="picon" style="background:rgba(165,110,255,.15)">₿</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">BTC $70K Call · Deribit</div><div style="font-size:10px;color:var(--text2)">PoP implied 68% · Model 74%</div></div><div class="mono" style="font-size:12px;font-weight:500;color:var(--amber)">+6%</div></div>
+        <div class="prow"><div class="picon" style="background:rgba(29,185,122,.15)">🔀</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">SPY Iron Condor · IBKR</div><div style="font-size:10px;color:var(--text2)">PoP implied 52% · Model 61%</div></div><div class="mono" style="font-size:12px;font-weight:500;color:var(--green)">+9%</div></div>
       </div>
     </div>
   </div>
@@ -358,91 +358,91 @@ textarea::placeholder{color:var(--text3)}
 <div class="pg" id="pg-markets">
   <div class="mkt-layout" style="flex:1;overflow:hidden">
     <div class="mkt-sb">
-      <div class="sec-title" style="padding:3px 9px 8px">Sport</div>
-      <button class="spbtn active" onclick="setSp(this)">🏀 NBA<span class="spcnt">12</span></button>
-      <button class="spbtn" onclick="setSp(this)">⚾ MLB<span class="spcnt">8</span></button>
-      <button class="spbtn" onclick="setSp(this)">🏈 NFL<span class="spcnt">14</span></button>
-      <button class="spbtn" onclick="setSp(this)">🏒 NHL<span class="spcnt">6</span></button>
-      <button class="spbtn" onclick="setSp(this)">📈 Kalshi<span class="spcnt">31</span></button>
-      <div class="sec-title" style="padding:14px 9px 8px">Market Type</div>
-      <button class="spbtn active" onclick="setSp(this)">Spreads</button>
-      <button class="spbtn" onclick="setSp(this)">Moneylines</button>
-      <button class="spbtn" onclick="setSp(this)">Totals</button>
-      <button class="spbtn" onclick="setSp(this)">Player Props</button>
-      <button class="spbtn" onclick="setSp(this)">Futures</button>
+      <div class="sec-title" style="padding:3px 9px 8px">Asset Class</div>
+      <button class="spbtn active" onclick="setSp(this)">📊 Stocks<span class="spcnt">42</span></button>
+      <button class="spbtn" onclick="setSp(this)">₿ Crypto<span class="spcnt">18</span></button>
+      <button class="spbtn" onclick="setSp(this)">📈 Futures<span class="spcnt">24</span></button>
+      <button class="spbtn" onclick="setSp(this)">🔀 Options<span class="spcnt">88</span></button>
+      <button class="spbtn" onclick="setSp(this)">💱 Forex<span class="spcnt">12</span></button>
+      <div class="sec-title" style="padding:14px 9px 8px">Contract Type</div>
+      <button class="spbtn active" onclick="setSp(this)">Calls</button>
+      <button class="spbtn" onclick="setSp(this)">Puts</button>
+      <button class="spbtn" onclick="setSp(this)">Spreads</button>
+      <button class="spbtn" onclick="setSp(this)">Straddles</button>
+      <button class="spbtn" onclick="setSp(this)">Covered Calls</button>
       <div class="sec-title" style="padding:14px 9px 8px">Value Filter</div>
-      <button class="spbtn" onclick="setSp(this)">All lines</button>
-      <button class="spbtn" onclick="setSp(this)">Value edges only</button>
-      <button class="spbtn" onclick="setSp(this)">Arbitrage only</button>
+      <button class="spbtn" onclick="setSp(this)">All contracts</button>
+      <button class="spbtn" onclick="setSp(this)">High IV rank (&gt;70%)</button>
+      <button class="spbtn" onclick="setSp(this)">Positive EV only</button>
     </div>
     <div class="mkt-main">
       <div class="mkt-tb">
-        <div class="ptabs"><button class="pt active" onclick="setPT(this)">DraftKings</button><button class="pt" onclick="setPT(this)">FanDuel</button><button class="pt" onclick="setPT(this)">BetMGM</button><button class="pt" onclick="setPT(this)">Kalshi</button><button class="pt" onclick="setPT(this)">Best Line</button></div>
+        <div class="ptabs"><button class="pt active" onclick="setPT(this)">TD Ameritrade</button><button class="pt" onclick="setPT(this)">Robinhood</button><button class="pt" onclick="setPT(this)">IBKR</button><button class="pt" onclick="setPT(this)">Tastytrade</button><button class="pt" onclick="setPT(this)">Best Price</button></div>
         <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text3);margin-left:auto"><div class="live-dot" style="width:5px;height:5px"></div>Updated 8s ago</div>
       </div>
       <div class="mkt-body">
         <table class="otbl">
-          <thead><tr><th style="width:210px">Matchup</th><th>Time</th><th class="r">Spread</th><th class="r">ML</th><th class="r">Total</th><th class="r">Move</th><th class="r">Edge</th></tr></thead>
+          <thead><tr><th style="width:80px">Symbol</th><th>Name</th><th class="r">Price</th><th class="r">Change</th><th class="r">Volume</th><th class="r">IV</th><th class="r">Edge</th></tr></thead>
           <tbody id="oddsBody"></tbody>
         </table>
       </div>
     </div>
   </div>
   <div class="bslip" id="bslip">
-    <div class="bsh" onclick="togSlip()"><span class="bsh-title">Bet Slip <span id="slipCnt" style="background:var(--blue);color:#fff;font-size:9px;padding:1px 5px;border-radius:3px;margin-left:3px">2</span></span><span style="font-size:11px;color:var(--text2)" id="slipLbl">▾</span></div>
+    <div class="bsh" onclick="togSlip()"><span class="bsh-title">Order Ticket <span id="slipCnt" style="background:var(--blue);color:#fff;font-size:9px;padding:1px 5px;border-radius:3px;margin-left:3px">2</span></span><span style="font-size:11px;color:var(--text2)" id="slipLbl">▾</span></div>
     <div id="slipBod">
       <div class="bsb">
-        <div class="si-item"><button class="sir" onclick="remSlip(this)">×</button><div style="font-size:10px;color:var(--text2)">NYK @ BOS · Spread</div><div style="font-size:12px;font-weight:600;color:var(--text)">Knicks -4.5</div><div class="mono" style="font-size:13px;color:var(--blue-bright)">-108</div></div>
-        <div class="si-item"><button class="sir" onclick="remSlip(this)">×</button><div style="font-size:10px;color:var(--text2)">LAL @ DEN · ML</div><div style="font-size:12px;font-weight:600;color:var(--text)">Nuggets ML</div><div class="mono" style="font-size:13px;color:var(--blue-bright)">-165</div></div>
+        <div class="si-item"><button class="sir" onclick="remSlip(this)">×</button><div style="font-size:10px;color:var(--text2)">AAPL · Call</div><div style="font-size:12px;font-weight:600;color:var(--text)">AAPL $185 Call</div><div class="mono" style="font-size:13px;color:var(--blue-bright)">$3.40</div></div>
+        <div class="si-item"><button class="sir" onclick="remSlip(this)">×</button><div style="font-size:10px;color:var(--text2)">TSLA · Put</div><div style="font-size:12px;font-weight:600;color:var(--text)">TSLA $170 Put</div><div class="mono" style="font-size:13px;color:var(--blue-bright)">$4.80</div></div>
       </div>
       <div class="sif">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px"><span style="font-size:12px;color:var(--text2)">Wager</span><input class="sinp" type="number" value="50" id="swager" oninput="calcSlip()" style="flex:1;margin-bottom:0"></div>
-        <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text2);margin-bottom:9px"><span>To win</span><span class="mono" style="color:var(--green);font-size:13px;font-weight:500" id="slipPay">$93.40</span></div>
-        <button class="btn-p" style="width:100%;padding:8px;font-size:12px">Place Bets</button>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:7px"><span style="font-size:12px;color:var(--text2)">Position Size</span><input class="sinp" type="number" value="500" id="sposSize" oninput="calcSlip()" style="flex:1;margin-bottom:0"></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text2);margin-bottom:9px"><span>Est. gain</span><span class="mono" style="color:var(--green);font-size:13px;font-weight:500" id="slipPay">$93.40</span></div>
+        <button class="btn-p" style="width:100%;padding:8px;font-size:12px">Submit Order</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- DFS BUILDER -->
-<div class="pg" id="pg-dfs">
+<!-- SCANNER -->
+<div class="pg" id="pg-scanner">
   <div class="dfs-wrap" style="flex:1;overflow:hidden">
     <div class="dfs-main">
       <div class="dfs-tb">
-        <span class="sec-title">Slate</span>
-        <button class="slate-tag active" onclick="setSl(this)">NBA Mon</button>
-        <button class="slate-tag" onclick="setSl(this)">NBA Tue</button>
-        <button class="slate-tag" onclick="setSl(this)">MLB Mon</button>
-        <div class="ptabs"><button class="pt active" onclick="setPT(this)">DraftKings</button><button class="pt" onclick="setPT(this)">FanDuel</button><button class="pt" onclick="setPT(this)">Yahoo</button></div>
-        <input class="dsearch" id="dss" placeholder="Search player…" oninput="filterP(this.value)">
-        <div class="ptabs" style="margin-left:auto"><button class="pt active" onclick="setPT(this)">All</button><button class="pt" onclick="setPT(this)">PG</button><button class="pt" onclick="setPT(this)">SG</button><button class="pt" onclick="setPT(this)">SF</button><button class="pt" onclick="setPT(this)">PF</button><button class="pt" onclick="setPT(this)">C</button></div>
+        <span class="sec-title">Expiration</span>
+        <button class="slate-tag active" onclick="setSl(this)">Weekly</button>
+        <button class="slate-tag" onclick="setSl(this)">Monthly</button>
+        <button class="slate-tag" onclick="setSl(this)">LEAPS</button>
+        <div class="ptabs"><button class="pt active" onclick="setPT(this)">TD Ameritrade</button><button class="pt" onclick="setPT(this)">Robinhood</button><button class="pt" onclick="setPT(this)">IBKR</button><button class="pt" onclick="setPT(this)">Tastytrade</button></div>
+        <input class="dsearch" id="dss" placeholder="Search symbol or contract…" oninput="filterC(this.value)">
+        <div class="ptabs" style="margin-left:auto"><button class="pt active" onclick="setPT(this)">All</button><button class="pt" onclick="setPT(this)">Calls</button><button class="pt" onclick="setPT(this)">Puts</button><button class="pt" onclick="setPT(this)">Spreads</button><button class="pt" onclick="setPT(this)">Straddles</button></div>
       </div>
       <div class="ptbl-wrap">
         <table class="ptbl">
-          <thead><tr><th>Player</th><th class="r">Salary</th><th class="r">Proj</th><th class="r">Value</th><th class="r">Own%</th><th class="r">Floor</th><th class="r">Ceil</th><th></th></tr></thead>
-          <tbody id="playerBody"></tbody>
+          <thead><tr><th>Contract</th><th class="r">Premium</th><th class="r">Delta</th><th class="r">IV%</th><th class="r">Vol</th><th class="r">OI%</th><th class="r">Score</th><th></th></tr></thead>
+          <tbody id="contractBody"></tbody>
         </table>
       </div>
     </div>
     <div class="dfs-sd">
       <div style="padding:13px;border-bottom:1px solid var(--border)">
-        <div class="sec-title" style="margin-bottom:11px">My Lineup</div>
-        <div id="lineupSlots"></div>
+        <div class="sec-title" style="margin-bottom:11px">Selected Contracts</div>
+        <div id="selContracts"></div>
       </div>
       <div style="padding:12px 13px;border-bottom:1px solid var(--border)">
-        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px"><span style="color:var(--text2)">Salary used</span><span class="mono" id="salUsed" style="font-weight:500">$0</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px"><span style="color:var(--text2)">Remaining</span><span class="mono" id="salLeft" style="color:var(--green);font-weight:500">$50,000</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px"><span style="color:var(--text2)">Premium used</span><span class="mono" id="salUsed" style="font-weight:500">$0</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px"><span style="color:var(--text2)">BP remaining</span><span class="mono" id="salLeft" style="color:var(--green);font-weight:500">$10,000</span></div>
         <div style="height:5px;background:var(--border2);border-radius:3px;overflow:hidden;margin-bottom:10px"><div id="salBar" style="height:100%;border-radius:3px;background:var(--blue);width:0%;transition:width .3s"></div></div>
-        <div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--text2)">Proj total</span><span class="mono" id="projTot" style="color:var(--green);font-size:14px;font-weight:500">0.0</span></div>
-        <button class="optbtn" onclick="optLineup()">⚡ Optimize Lineup</button>
-        <button class="expbtn">↓ Export to DraftKings</button>
+        <div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--text2)">Exp. gain</span><span class="mono" id="projTot" style="color:var(--green);font-size:14px;font-weight:500">$0</span></div>
+        <button class="optbtn" onclick="optContracts()">⚡ Find Best Opportunities</button>
+        <button class="expbtn">↓ Export to Broker</button>
       </div>
       <div style="padding:12px 13px">
-        <div class="sec-title" style="margin-bottom:9px">Contest Picker</div>
+        <div class="sec-title" style="margin-bottom:9px">Strategy Type</div>
         <div style="display:flex;flex-direction:column;gap:6px">
-          <div style="background:var(--surface3);border:1px solid var(--border2);border-radius:6px;padding:9px 11px;cursor:pointer" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--border2)'"><div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="font-size:12px;font-weight:600;color:var(--text)">Millionaire Maker</span><span class="badge hot">GPP</span></div><div style="font-size:11px;color:var(--text2)">$3 entry · $3M GTD · 412k entered</div></div>
-          <div style="background:var(--surface3);border:1px solid var(--border2);border-radius:6px;padding:9px 11px;cursor:pointer" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--border2)'"><div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="font-size:12px;font-weight:600;color:var(--text)">Double Up $25</span><span class="badge val">Cash</span></div><div style="font-size:11px;color:var(--text2)">$25 entry · Top 45% double</div></div>
-          <div style="background:var(--surface3);border:1px solid var(--border2);border-radius:6px;padding:9px 11px;cursor:pointer" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--border2)'"><div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="font-size:12px;font-weight:600;color:var(--text)">50/50 $5</span><span class="badge val">Cash</span></div><div style="font-size:11px;color:var(--text2)">$5 entry · Top 50% cash</div></div>
+          <div style="background:var(--surface3);border:1px solid var(--border2);border-radius:6px;padding:9px 11px;cursor:pointer" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--border2)'"><div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="font-size:12px;font-weight:600;color:var(--text)">Momentum Play</span><span class="badge hot">HOT</span></div><div style="font-size:11px;color:var(--text2)">High-delta calls · Short expiry · High risk</div></div>
+          <div style="background:var(--surface3);border:1px solid var(--border2);border-radius:6px;padding:9px 11px;cursor:pointer" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--border2)'"><div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="font-size:12px;font-weight:600;color:var(--text)">Income Strategy</span><span class="badge val">CASH</span></div><div style="font-size:11px;color:var(--text2)">Covered calls · Theta decay · Low risk</div></div>
+          <div style="background:var(--surface3);border:1px solid var(--border2);border-radius:6px;padding:9px 11px;cursor:pointer" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--border2)'"><div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="font-size:12px;font-weight:600;color:var(--text)">Hedge Strategy</span><span class="badge val">SAFE</span></div><div style="font-size:11px;color:var(--text2)">Protective puts · Portfolio hedge · Low risk</div></div>
         </div>
       </div>
     </div>
@@ -453,10 +453,10 @@ textarea::placeholder{color:var(--text3)}
 <div class="pg" id="pg-portfolio">
   <div class="port-wrap">
     <div class="pgrid">
-      <div class="sc"><div class="scv p">$1,240</div><div class="scl">Total Bankroll</div><div class="scs p">↑ +$187 this week</div></div>
+      <div class="sc"><div class="scv p">$12,400</div><div class="scl">Portfolio Value</div><div class="scs p">↑ +$1,870 this week</div></div>
       <div class="sc"><div class="scv p">+18.4%</div><div class="scl">All-Time ROI</div><div class="scs p">↑ +2.1% vs last month</div></div>
-      <div class="sc"><div class="scv u">61%</div><div class="scl">Win Rate</div><div class="scs u">148W / 95L / 4P</div></div>
-      <div class="sc"><div class="scv p">+$43</div><div class="scl">Open Bets P&L</div><div class="scs u">4 active · $187 risked</div></div>
+      <div class="sc"><div class="scv u">61%</div><div class="scl">PoP Average</div><div class="scs u">148W / 95L / 4P</div></div>
+      <div class="sc"><div class="scv p">+$354</div><div class="scl">Open Positions P&L</div><div class="scs u">4 active · $1,450 at risk</div></div>
     </div>
     <div class="p2col">
       <div class="panel">
@@ -464,46 +464,46 @@ textarea::placeholder{color:var(--text3)}
         <div class="cht-wrap"><canvas id="pnlChart" style="width:100%;height:100%"></canvas></div>
       </div>
       <div class="panel">
-        <div class="sec-title" style="margin-bottom:12px">ROI by Sport</div>
+        <div class="sec-title" style="margin-bottom:12px">ROI by Asset Class</div>
         <div class="spln" id="sportBD"></div>
-        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border)"><div class="sec-title" style="margin-bottom:9px">By Market Type</div><div id="mktBD"></div></div>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border)"><div class="sec-title" style="margin-bottom:9px">By Trade Type</div><div id="mktBD"></div></div>
       </div>
     </div>
     <div style="background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:16px;margin-bottom:18px">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:13px"><span class="sec-title">Open Bets</span><span class="badge arb">4 Active</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:13px"><span class="sec-title">Open Positions</span><span class="badge arb">4 Active</span></div>
       <div id="openBets"></div>
     </div>
     <div style="background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:16px;margin-bottom:4px">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:13px"><span class="sec-title">Bet History</span><div class="ptabs"><button class="pt active" onclick="setPT(this)">All</button><button class="pt" onclick="setPT(this)">Wins</button><button class="pt" onclick="setPT(this)">Losses</button><button class="pt" onclick="setPT(this)">Open</button></div></div>
-      <table class="bht" style="width:100%"><thead><tr><th>Date</th><th>Pick</th><th>Sport</th><th>Odds</th><th>Wager</th><th>P&L</th></tr></thead><tbody id="betHist"></tbody></table>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:13px"><span class="sec-title">Trade History</span><div class="ptabs"><button class="pt active" onclick="setPT(this)">All</button><button class="pt" onclick="setPT(this)">Wins</button><button class="pt" onclick="setPT(this)">Losses</button><button class="pt" onclick="setPT(this)">Open</button></div></div>
+      <table class="bht" style="width:100%"><thead><tr><th>Date</th><th>Trade</th><th>Asset</th><th>Price</th><th>Size</th><th>P&L</th></tr></thead><tbody id="betHist"></tbody></table>
     </div>
   </div>
 </div>
 
-<!-- PARLAY LAB -->
-<div class="pg" id="pg-parlay">
+<!-- STRATEGY BUILDER -->
+<div class="pg" id="pg-strategy">
   <div class="pl-wrap" style="flex:1;overflow:hidden">
     <div class="pl-main">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
-        <div><div style="font-size:19px;font-weight:600;color:var(--text)">Parlay Lab</div><div style="font-size:12px;color:var(--text2);margin-top:1px">Build and analyze multi-leg parlays with correlation scoring</div></div>
+        <div><div style="font-size:19px;font-weight:600;color:var(--text)">Strategy Builder</div><div style="font-size:12px;color:var(--text2);margin-top:1px">Build and analyze multi-leg options strategies with Greeks exposure</div></div>
         <div class="ptabs"><button class="pt active" onclick="setPT(this)">Builder</button><button class="pt" onclick="setPT(this)">Templates</button><button class="pt" onclick="setPT(this)">History</button></div>
       </div>
       <div class="pl-card">
-        <div class="pl-hdr"><span class="pl-title">Active Parlay · <span style="color:var(--blue-bright)" id="legCnt">4</span> Legs</span><div style="display:flex;gap:7px"><button class="btn-o" style="font-size:11px;padding:3px 9px" onclick="clearLegs()">Clear All</button><button class="btn-o" style="font-size:11px;padding:3px 9px">Save Template</button></div></div>
-        <div class="pl-legs" id="parlayLegs"></div>
+        <div class="pl-hdr"><span class="pl-title">Active Strategy · <span style="color:var(--blue-bright)" id="legCnt">4</span> Legs</span><div style="display:flex;gap:7px"><button class="btn-o" style="font-size:11px;padding:3px 9px" onclick="clearLegs()">Clear All</button><button class="btn-o" style="font-size:11px;padding:3px 9px">Save Template</button></div></div>
+        <div class="pl-legs" id="strategyLegs"></div>
         <div class="pl-sum">
           <div style="display:flex;align-items:flex-end;justify-content:space-between">
-            <div><div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:3px">Combined Odds</div><div class="big-odds" id="plOdds">+1240</div><div class="plev p" id="plEV">EV: +3.8% · Model edge: +12.4%</div></div>
-            <div style="text-align:right"><div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:3px">Hit Probability</div><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;letter-spacing:.04em;color:var(--text);line-height:1" id="plProb">11.2%</div><div style="font-size:11px;color:var(--text2)">vs. 8.8% implied</div></div>
+            <div><div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:3px">Combined Premium</div><div class="big-odds" id="plOdds">+1240</div><div class="plev p" id="plEV">EV: +3.8% · Greeks edge: +12.4%</div></div>
+            <div style="text-align:right"><div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:3px">Prob. of Profit</div><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;letter-spacing:.04em;color:var(--text);line-height:1" id="plProb">11.2%</div><div style="font-size:11px;color:var(--text2)">vs. 8.8% market implied</div></div>
           </div>
         </div>
       </div>
       <div class="pl-card">
-        <div class="pl-hdr"><span class="pl-title">Correlation Analysis</span><span class="badge val">2 Positive Correlations</span></div>
+        <div class="pl-hdr"><span class="pl-title">Greeks Analysis</span><span class="badge val">Net Delta: +0.48</span></div>
         <div style="padding:13px;display:flex;flex-direction:column;gap:9px">
-          <div style="background:var(--green-dim);border:1px solid rgba(29,185,122,.2);border-radius:7px;padding:11px"><div style="font-size:10px;font-weight:700;color:var(--green);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px">✓ Positive Correlation</div><div style="font-size:12px;color:var(--text);margin-bottom:1px">Knicks -4.5 + Jalen Brunson o28.5 pts</div><div style="font-size:11px;color:var(--text2)">When NYK covers, Brunson averages 31.2 pts (r=0.62)</div></div>
-          <div style="background:var(--green-dim);border:1px solid rgba(29,185,122,.2);border-radius:7px;padding:11px"><div style="font-size:10px;font-weight:700;color:var(--green);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px">✓ Positive Correlation</div><div style="font-size:12px;color:var(--text);margin-bottom:1px">Ohtani K8.5 o + Dodgers ML</div><div style="font-size:11px;color:var(--text2)">Ohtani K>8 → Dodgers win 78% (r=0.54)</div></div>
-          <div style="background:var(--amber-dim);border:1px solid rgba(245,166,35,.2);border-radius:7px;padding:11px"><div style="font-size:10px;font-weight:700;color:var(--amber);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px">⚠ Watch: Negative Correlation</div><div style="font-size:12px;color:var(--text);margin-bottom:1px">Celtics ML + NBA Total Under 224.5</div><div style="font-size:11px;color:var(--text2)">Celtics wins tend to be high-scoring — moderate negative correlation (r=-0.31)</div></div>
+          <div style="background:var(--green-dim);border:1px solid rgba(29,185,122,.2);border-radius:7px;padding:11px"><div style="font-size:10px;font-weight:700;color:var(--green);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px">✓ Positive Correlation</div><div style="font-size:12px;color:var(--text);margin-bottom:1px">AAPL Call + TSLA Put — Delta hedge</div><div style="font-size:11px;color:var(--text2)">Opposite deltas (+0.52 / -0.51) provide natural hedge (r=0.62)</div></div>
+          <div style="background:var(--green-dim);border:1px solid rgba(29,185,122,.2);border-radius:7px;padding:11px"><div style="font-size:10px;font-weight:700;color:var(--green);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px">✓ Positive Correlation</div><div style="font-size:12px;color:var(--text);margin-bottom:1px">BTC Call + ETH Long — Crypto correlation</div><div style="font-size:11px;color:var(--text2)">BTC/ETH 30-day correlation 0.84 — amplified exposure (r=0.54)</div></div>
+          <div style="background:var(--amber-dim);border:1px solid rgba(245,166,35,.2);border-radius:7px;padding:11px"><div style="font-size:10px;font-weight:700;color:var(--amber);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px">⚠ Watch: Theta Drag</div><div style="font-size:12px;color:var(--text);margin-bottom:1px">SPY Put + BTC Call — Mixed theta</div><div style="font-size:11px;color:var(--text2)">Long SPY Put decays at -$0.08/day while BTC Call decays at -$0.22/day</div></div>
         </div>
       </div>
       <div class="pl-card">
@@ -513,8 +513,8 @@ textarea::placeholder{color:var(--text3)}
     </div>
     <div class="pl-sd">
       <div class="evm">
-        <div class="sec-title" style="margin-bottom:7px">Expected Value Meter</div>
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px"><span style="font-size:11px;color:var(--text2)">Parlay EV</span><span class="mono" style="font-size:13px;font-weight:500;color:var(--green)" id="evD">+3.8%</span></div>
+        <div class="sec-title" style="margin-bottom:7px">Risk/Reward Meter</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px"><span style="font-size:11px;color:var(--text2)">Strategy EV</span><span class="mono" style="font-size:13px;font-weight:500;color:var(--green)" id="evD">+3.8%</span></div>
         <div class="evg"><div class="evgf" id="evGF" style="width:64%;background:var(--green)"></div></div>
         <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text3)"><span>Negative</span><span>Break Even</span><span>+5%</span></div>
         <div style="margin-top:11px;display:flex;flex-direction:column;gap:5px">
@@ -524,17 +524,17 @@ textarea::placeholder{color:var(--text3)}
         </div>
       </div>
       <div>
-        <div class="sec-title" style="margin-bottom:9px">Wager & Payout</div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:9px"><span style="font-size:12px;color:var(--text2)">Stake</span><input class="wi" type="number" value="20" id="plWager" oninput="calcPP()"></div>
+        <div class="sec-title" style="margin-bottom:9px">Position & Payout</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:9px"><span style="font-size:12px;color:var(--text2)">Capital</span><input class="wi" type="number" value="20" id="plWager" oninput="calcPP()"></div>
         <div class="pdis">
-          <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:3px">To win</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:3px">Max profit</div>
           <div class="pamount" id="plPay">$268.00</div>
           <div style="font-size:11px;color:var(--text2);margin-top:2px" id="plTotal">Total return: $288.00</div>
         </div>
-        <button class="placebtn">Place Parlay</button>
+        <button class="placebtn">Execute Strategy</button>
       </div>
       <div>
-        <div class="sec-title" style="margin-bottom:9px">AI Suggested Adds</div>
+        <div class="sec-title" style="margin-bottom:9px">AI Suggested Legs</div>
         <div id="sugLegs"></div>
       </div>
     </div>
@@ -544,11 +544,11 @@ textarea::placeholder{color:var(--text3)}
 </div><!-- shell -->
 
 <div class="sbar">
-  <div class="si"><div class="sd ok"></div>Odds API</div>
-  <div class="si"><div class="sd ok"></div>Kalshi</div>
-  <div class="si"><div class="sd ok"></div>Statcast</div>
-  <div class="si"><div class="sd ok"></div>Grok</div>
-  <div class="si"><div class="sd warn"></div>ADP (stale 6h)</div>
+  <div class="si"><div class="sd ok"></div>Market Data API</div>
+  <div class="si"><div class="sd ok"></div>CBOE</div>
+  <div class="si"><div class="sd ok"></div>TradingView</div>
+  <div class="si"><div class="sd ok"></div>Claude AI</div>
+  <div class="si"><div class="sd ok"></div>Options Alpha</div>
   <div style="margin-left:auto;font-size:11px;color:var(--text3);font-family:'DM Mono',monospace" id="clk"></div>
 </div>
 <script>
@@ -557,7 +557,7 @@ function clk(){const n=new Date();document.getElementById('clk').textContent=n.t
 clk();setInterval(clk,30000);
 
 // TICKER
-const TD=[{s:'NYK',l:'Knicks -4.5',v:'-108',d:'up'},{s:'BOS',l:'Celtics ML',v:'-135',d:'dn'},{s:'OKC',l:'Champion',v:'31¢',d:'up'},{s:'OHT',l:'Ohtani K8.5',v:'Over -118',d:'up'},{s:'LAL',l:'Lakers o/u',v:'231.0',d:''},{s:'MET',l:'Mets 90W',v:'68¢',d:'up'},{s:'DEN',l:'Nuggets -3.5',v:'-112',d:'dn'},{s:'KCH',l:'Mahomes Yds',v:'o229.5',d:'up'},{s:'PHI',l:'Eagles SB',v:'14¢',d:'dn'},{s:'GSW',l:'Warriors ML',v:'-128',d:'up'},{s:'HOU',l:'Astros -1.5',v:'+115',d:'up'},{s:'CHI',l:'Bulls +7',v:'-108',d:''}];
+const TD=[{s:'AAPL',l:'Apple Calls',v:'$189.42',d:'up'},{s:'BTC',l:'Bitcoin',v:'$68,420',d:'up'},{s:'SPY',l:'S&P 500 ETF',v:'$524.11',d:'up'},{s:'ETH',l:'Ethereum',v:'$3,241',d:'dn'},{s:'TSLA',l:'Tesla Puts',v:'$172.80',d:'dn'},{s:'QQQ',l:'Nasdaq ETF',v:'$448.33',d:'up'},{s:'NQ',l:'Nasdaq Futures',v:'19,840',d:'up'},{s:'ES',l:'S&P Futures',v:'5,280',d:'up'},{s:'GLD',l:'Gold Futures',v:'$231.40',d:'up'},{s:'NVDA',l:'Nvidia Calls',v:'$878.60',d:'up'},{s:'SOL',l:'Solana',v:'$148.22',d:'dn'},{s:'CL',l:'Crude Oil',v:'$82.40',d:'dn'}];
 const tk=document.getElementById('ticker');
 tk.innerHTML=[...TD,...TD].map(x=>`<span class="ticker-item"><span class="sym">${x.s}</span><span>${x.l}</span><span class="${x.d==='up'?'up':x.d==='dn'?'dn':''}">${x.v}</span></span>`).join('');
 
@@ -587,111 +587,112 @@ function sendMsg(){
   const msgs=document.getElementById('msgs');
   msgs.insertAdjacentHTML('beforeend',`<div class="ur"><div class="ub">${val}</div></div>`);
   const el=document.createElement('div');el.className='ai-row';
-  el.innerHTML=`<div class="av"><svg width="13" height="13" viewBox="0 0 16 16" fill="var(--blue-bright)"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm-1.5 5.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm3 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zM8 12a4 4 0 01-3.46-2h6.92A4 4 0 018 12z"/></svg></div><div><div class="ab"><div class="aname">Leverage AI · Grok</div><div class="atext" style="color:var(--text3)" id="tt">Analyzing live data…</div></div></div>`;
+  el.innerHTML=`<div class="av"><svg width="13" height="13" viewBox="0 0 16 16" fill="var(--blue-bright)"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm-1.5 5.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm3 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zM8 12a4 4 0 01-3.46-2h6.92A4 4 0 018 12z"/></svg></div><div><div class="ab"><div class="aname">Leverage AI · Claude</div><div class="atext" style="color:var(--text3)" id="tt">Analyzing live data…</div></div></div>`;
   msgs.appendChild(el);msgs.scrollTop=msgs.scrollHeight;inp.value='';ag(inp);
-  setTimeout(()=>{const t=document.getElementById('tt');if(t){t.style.color='';t.textContent='Based on live feeds, here\'s my analysis. Check the sidebar for updated market prices and today\'s AI picks.';}msgs.scrollTop=msgs.scrollHeight;updCreds(thOn?3:1);},1800);
+  setTimeout(()=>{const t=document.getElementById('tt');if(t){t.style.color='';t.textContent='Based on live market data and options flow, here\'s my analysis. Check the sidebar for updated prices and today\'s high-IV opportunities.';}msgs.scrollTop=msgs.scrollHeight;updCreds(thOn?3:1);},1800);
 }
 document.getElementById('msginp').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg();}});
 
 // MARKETS
-const GAMES=[
-  {a:'NYK Knicks',h:'BOS Celtics',t:'7:30 PM',live:true,sp:'-4.5 / +4.5',ml:'-115 / +105',tot:'222.5',mv:'up',edge:'+4.2%'},
-  {a:'LAL Lakers',h:'DEN Nuggets',t:'9:00 PM',live:false,sp:'+3.5 / -3.5',ml:'+140 / -165',tot:'231.0',mv:'dn',edge:''},
-  {a:'GSW Warriors',h:'PHX Suns',t:'10:00 PM',live:false,sp:'-2.0 / +2.0',ml:'-128 / +112',tot:'228.5',mv:'flat',edge:'+2.1%'},
-  {a:'CHI Bulls',h:'MIA Heat',t:'7:00 PM',live:true,sp:'+7.0 / -7.0',ml:'+240 / -290',tot:'218.0',mv:'up',edge:''},
-  {a:'CLE Cavaliers',h:'ORL Magic',t:'7:00 PM',live:false,sp:'-5.5 / +5.5',ml:'-220 / +185',tot:'215.5',mv:'flat',edge:'+1.8%'},
-  {a:'SAC Kings',h:'POR Trail Blazers',t:'10:00 PM',live:false,sp:'-8.0 / +8.0',ml:'-320 / +265',tot:'233.0',mv:'dn',edge:''},
+const INSTRUMENTS=[
+  {sym:'AAPL',name:'Apple Inc',price:'$189.42',chg:'+1.8%',vol:'48.2M',iv:'24.1%',edge:'+4.2%',live:true},
+  {sym:'TSLA',name:'Tesla Inc',price:'$172.80',chg:'-2.4%',vol:'92.6M',iv:'51.3%',edge:'',live:true},
+  {sym:'NVDA',name:'Nvidia Corp',price:'$878.60',chg:'+3.1%',vol:'31.4M',iv:'62.7%',edge:'+2.1%',live:false},
+  {sym:'BTC',name:'Bitcoin',price:'$68,420',chg:'+2.9%',vol:'$28B',iv:'72.4%',edge:'',live:false},
+  {sym:'SPY',name:'S&P 500 ETF',price:'$524.11',chg:'+0.7%',vol:'68.1M',iv:'14.8%',edge:'+1.8%',live:false},
+  {sym:'ETH',name:'Ethereum',price:'$3,241',chg:'-1.2%',vol:'$14B',iv:'68.2%',edge:'',live:false},
 ];
 function mv(d){return d==='up'?`<span style="color:var(--green)">↑</span>`:d==='dn'?`<span style="color:var(--red)">↓</span>`:`<span style="color:var(--text3)">—</span>`;}
 (function renderOdds(){
   const b=document.getElementById('oddsBody');
-  b.innerHTML=GAMES.map(g=>`
-    <tr><td colspan="7" style="padding:0"><div class="gtr">${g.live?'<span class="livebadge">LIVE</span>':''}<span>Today · ${g.t} ET</span></div></td></tr>
-    <tr class="prow2"><td><div style="padding:8px 0;font-size:12px;font-weight:500;color:var(--text)">${g.a}</div></td><td style="font-size:10px;color:var(--text3)">${g.t}</td><td class="r"><button class="obtn ${g.edge?'best':''}">${g.sp.split('/')[0].trim()}</button></td><td class="r"><button class="obtn">${g.ml.split('/')[0].trim()}</button></td><td class="r"><button class="obtn">o${g.tot}</button></td><td class="r">${mv(g.mv)}</td><td class="r"><span class="mono" style="font-size:11px;font-weight:500;color:var(--green)">${g.edge}</span></td></tr>
-    <tr class="prow2"><td><div style="padding:8px 0;font-size:12px;font-weight:500;color:var(--text)">${g.h}</div></td><td></td><td class="r"><button class="obtn">${g.sp.split('/')[1].trim()}</button></td><td class="r"><button class="obtn">${g.ml.split('/')[1].trim()}</button></td><td class="r"><button class="obtn">u${g.tot}</button></td><td></td><td></td></tr>
+  b.innerHTML=INSTRUMENTS.map(inst=>`
+    <tr class="prow2"><td><div style="padding:8px 0"><span class="ppos pp-SPREAD" style="font-family:'DM Mono',monospace;font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;color:#fff">${inst.sym}</span>${inst.live?'<span class="livebadge" style="margin-left:5px">LIVE</span>':''}</div></td><td style="font-size:12px;font-weight:500;color:var(--text)">${inst.name}</td><td class="r"><span class="mono" style="font-size:12px;font-weight:500">${inst.price}</span></td><td class="r"><span class="mono" style="font-size:12px;font-weight:500;color:${inst.chg.startsWith('+')?'var(--green)':'var(--red)'}">${inst.chg}</span></td><td class="r"><span class="mono" style="font-size:11px;color:var(--text2)">${inst.vol}</span></td><td class="r"><button class="obtn ${inst.edge?'best':''}">${inst.iv}</button></td><td class="r"><span class="mono" style="font-size:11px;font-weight:500;color:var(--green)">${inst.edge}</span></td></tr>
   `).join('');
 })();
 setInterval(()=>{document.querySelectorAll('.obtn').forEach(b=>{if(Math.random()<.035){b.style.background='rgba(43,111,245,.12)';setTimeout(()=>b.style.background='',500);}});},4000);
-// BET SLIP
+// ORDER TICKET
 let slipOpen=true;
 function togSlip(){slipOpen=!slipOpen;document.getElementById('slipBod').style.display=slipOpen?'':'none';document.getElementById('slipLbl').textContent=slipOpen?'▾':'▸';}
 function remSlip(btn){btn.closest('.si-item').remove();document.getElementById('slipCnt').textContent=document.querySelectorAll('.si-item').length;}
-function calcSlip(){const w=parseFloat(document.getElementById('swager').value)||0;document.getElementById('slipPay').textContent='$'+(w*1.868).toFixed(2);}
+function calcSlip(){const w=parseFloat(document.getElementById('sposSize').value)||0;document.getElementById('slipPay').textContent='$'+(w*1.5).toFixed(2);}
 
-// DFS
-const PLAYERS=[
-  {pos:'PG',name:'Luka Doncic',team:'DAL',sal:10800,proj:58.2,val:5.39,own:32,fl:38,ce:80,hot:true},
-  {pos:'SG',name:'Devin Booker',team:'PHX',sal:9200,proj:46.8,val:5.09,own:24,fl:32,ce:65,hot:true},
-  {pos:'SF',name:'LeBron James',team:'LAL',sal:9600,proj:49.1,val:5.11,own:28,fl:35,ce:70,hot:false},
-  {pos:'PF',name:'Giannis Antetokounmpo',team:'MIL',sal:11200,proj:62.4,val:5.57,own:38,fl:44,ce:85,hot:true},
-  {pos:'C', name:'Nikola Jokic',team:'DEN',sal:10600,proj:60.1,val:5.67,own:41,fl:42,ce:82,hot:true},
-  {pos:'PG',name:'Tyrese Haliburton',team:'IND',sal:8800,proj:43.2,val:4.91,own:18,fl:28,ce:62,hot:false},
-  {pos:'SG',name:'Jaylen Brown',team:'BOS',sal:8400,proj:38.6,val:4.60,own:14,fl:24,ce:58,hot:false},
-  {pos:'SF',name:'Kevin Durant',team:'PHX',sal:9800,proj:48.4,val:4.94,own:22,fl:34,ce:68,hot:false},
-  {pos:'PF',name:'Anthony Davis',team:'LAL',sal:9400,proj:47.8,val:5.09,own:26,fl:32,ce:72,hot:false},
-  {pos:'C', name:'Joel Embiid',team:'PHI',sal:10200,proj:52.3,val:5.13,own:30,fl:36,ce:76,hot:true},
-  {pos:'G', name:'Jalen Brunson',team:'NYK',sal:8200,proj:40.1,val:4.89,own:20,fl:26,ce:60,hot:false},
-  {pos:'F', name:'Jayson Tatum',team:'BOS',sal:9000,proj:44.7,val:4.97,own:23,fl:30,ce:66,hot:false},
-  {pos:'UTIL',name:'Bam Adebayo',team:'MIA',sal:8000,proj:36.4,val:4.55,own:12,fl:24,ce:55,hot:false},
+// SCANNER
+const CONTRACTS=[
+  {type:'CALL',sym:'AAPL',exp:'May 17',strike:190,prem:3.40,delta:0.48,iv:24.1,vol:12840,oi:48200,val:5.39,hot:true},
+  {type:'PUT',sym:'TSLA',exp:'May 17',strike:170,prem:5.80,delta:-0.51,iv:51.3,vol:8920,oi:32100,val:5.09,hot:true},
+  {type:'CALL',sym:'NVDA',exp:'May 31',strike:880,prem:18.40,delta:0.45,iv:62.7,vol:6410,oi:21800,val:5.11,hot:false},
+  {type:'CALL',sym:'BTC',exp:'May 31',strike:70000,prem:1840,delta:0.52,iv:72.4,vol:3210,oi:14400,val:5.57,hot:true},
+  {type:'SPREAD',sym:'SPY',exp:'May 17',strike:525,prem:2.10,delta:0.38,iv:14.8,vol:24100,oi:88400,val:5.67,hot:true},
+  {type:'PUT',sym:'QQQ',exp:'Jun 21',strike:445,prem:4.20,delta:-0.42,iv:18.2,vol:9800,oi:36700,val:4.91,hot:false},
+  {type:'CALL',sym:'ETH',exp:'May 31',strike:3300,prem:148,delta:0.44,iv:68.2,vol:1840,oi:8200,val:4.60,hot:false},
+  {type:'STRANGLE',sym:'NVDA',exp:'May 17',strike:880,prem:24.60,delta:0.08,iv:65.1,vol:2140,oi:7400,val:4.94,hot:false},
+  {type:'COVERED',sym:'GLD',exp:'Jun 21',strike:230,prem:1.80,delta:0.35,iv:12.4,vol:4820,oi:18200,val:5.09,hot:false},
+  {type:'CALL',sym:'NVDA',exp:'May 17',strike:870,prem:14.20,delta:0.54,iv:63.8,vol:8840,oi:28400,val:5.13,hot:true},
+  {type:'CALL',sym:'SOL',exp:'May 31',strike:155,prem:8.40,delta:0.46,iv:84.2,vol:1240,oi:4800,val:4.89,hot:false},
+  {type:'SPREAD',sym:'QQQ',exp:'Jun 21',strike:450,prem:3.10,delta:0.32,iv:17.8,vol:6840,oi:24600,val:4.97,hot:false},
+  {type:'CALL',sym:'CL',exp:'Jun 21',strike:84,prem:1.20,delta:0.41,iv:28.4,vol:3140,oi:12800,val:4.55,hot:false},
 ];
-const SLOTS=['PG','SG','SF','PF','C','G','F','UTIL'];
-let lineup={PG:null,SG:null,SF:null,PF:null,C:null,G:null,F:null,UTIL:null};
-function renderP(f=''){
-  const b=document.getElementById('playerBody');
-  const list=PLAYERS.filter(p=>!f||p.name.toLowerCase().includes(f.toLowerCase())||p.team.toLowerCase().includes(f.toLowerCase()));
-  b.innerHTML=list.map(p=>{
-    const inL=Object.values(lineup).some(l=>l&&l.name===p.name);
-    const vc=p.val>=5.3?'var(--green)':p.val>=4.8?'var(--amber)':'var(--text3)';
-    const pc=p.proj>=50?'color:var(--green)':p.proj>=40?'color:var(--amber)':'color:var(--text2)';
-    return `<tr class="prow2${inL?' sel':''}" onclick="togP('${p.name}')"><td><div style="display:flex;align-items:center;gap:8px;padding:8px 0"><span class="ppos pp-${p.pos}">${p.pos}</span><div><div style="font-size:12px;font-weight:500;color:var(--text)">${p.name}${p.hot?' <span style="color:var(--amber);font-size:10px">🔥</span>':''}</div><div style="font-size:10px;color:var(--text3)">${p.team}</div></div></div></td><td class="r"><span class="mono" style="font-size:12px;font-weight:500">$${p.sal.toLocaleString()}</span></td><td class="r"><span class="mono" style="font-size:12px;font-weight:500;${pc}">${p.proj}</span></td><td class="r"><span class="mono" style="font-size:11px;color:${vc}">${p.val.toFixed(2)}</span></td><td class="r"><span class="mono" style="font-size:11px;color:var(--text2)">${p.own}%</span></td><td class="r"><span class="mono" style="font-size:11px;color:var(--text3)">${p.fl}</span></td><td class="r"><span class="mono" style="font-size:11px;color:var(--text2)">${p.ce}</span></td><td><button class="addbtn${inL?' added':''}">${inL?'✓ In':'+ Add'}</button></td></tr>`;
+const CONTRACT_TYPES=['CALL','PUT','SPREAD','STRANGLE','COVERED'];
+let selection={CALL:null,PUT:null,SPREAD:null,STRANGLE:null,COVERED:null};
+function renderC(f=''){
+  const b=document.getElementById('contractBody');
+  const list=CONTRACTS.filter(c=>!f||c.sym.toLowerCase().includes(f.toLowerCase())||c.type.toLowerCase().includes(f.toLowerCase()));
+  b.innerHTML=list.map(c=>{
+    const key=c.sym+c.strike;
+    const inS=Object.values(selection).some(s=>s&&s.sym===c.sym&&s.strike===c.strike);
+    const vc=c.val>=5.3?'var(--green)':c.val>=4.8?'var(--amber)':'var(--text3)';
+    const dc=c.delta>=0?'var(--green)':'var(--red)';
+    const premFmt=c.prem>=100?'$'+c.prem.toLocaleString():'$'+c.prem.toFixed(2);
+    return `<tr class="prow2${inS?' sel':''}" onclick="togC('${key}')"><td><div style="display:flex;align-items:center;gap:8px;padding:8px 0"><span class="ppos pp-${c.type}">${c.type}</span><div><div style="font-size:12px;font-weight:500;color:var(--text)">${c.sym} $${c.strike.toLocaleString()} ${c.type==='CALL'||c.type==='PUT'?c.type:''}${c.hot?' <span style="color:var(--amber);font-size:10px">🔥</span>':''}</div><div style="font-size:10px;color:var(--text3)">Exp ${c.exp}</div></div></div></td><td class="r"><span class="mono" style="font-size:12px;font-weight:500">${premFmt}</span></td><td class="r"><span class="mono" style="font-size:12px;font-weight:500;color:${dc}">${c.delta.toFixed(2)}</span></td><td class="r"><span class="mono" style="font-size:11px;color:var(--text2)">${c.iv}%</span></td><td class="r"><span class="mono" style="font-size:11px;color:var(--text2)">${c.vol.toLocaleString()}</span></td><td class="r"><span class="mono" style="font-size:11px;color:var(--text2)">${(c.oi/1000).toFixed(0)}k</span></td><td class="r"><span class="mono" style="font-size:11px;color:${vc}">${c.val.toFixed(2)}</span></td><td><button class="addbtn${inS?' added':''}">${inS?'✓ In':'+ Add'}</button></td></tr>`;
   }).join('');
 }
-function filterP(v){renderP(v);}
-function togP(name){
-  const p=PLAYERS.find(x=>x.name===name);if(!p)return;
-  const inL=Object.values(lineup).some(l=>l&&l.name===name);
-  if(inL){Object.keys(lineup).forEach(k=>{if(lineup[k]&&lineup[k].name===name)lineup[k]=null;});}
-  else{if(!lineup[p.pos])lineup[p.pos]=p;else{const emp=SLOTS.find(s=>!lineup[s]);if(emp)lineup[emp]=p;}}
-  renderP(document.getElementById('dss').value);renderLU();
+function filterC(v){renderC(v);}
+function togC(key){
+  const c=CONTRACTS.find(x=>(x.sym+x.strike)===key);if(!c)return;
+  const inS=Object.values(selection).some(s=>s&&s.sym===c.sym&&s.strike===c.strike);
+  if(inS){Object.keys(selection).forEach(k=>{if(selection[k]&&selection[k].sym===c.sym&&selection[k].strike===c.strike)selection[k]=null;});}
+  else{if(!selection[c.type])selection[c.type]=c;else{const emp=CONTRACT_TYPES.find(t=>!selection[t]);if(emp)selection[emp]=c;}}
+  renderC(document.getElementById('dss').value);renderSel();
 }
-function renderLU(){
-  const el=document.getElementById('lineupSlots');
-  let used=0,proj=0;
-  el.innerHTML=SLOTS.map(pos=>{
-    const p=lineup[pos];if(p){used+=p.sal;proj+=p.proj;}
-    return `<div class="lslot"><span class="lspos">${pos}</span>${p?`<span style="font-size:11px;font-weight:500;color:var(--text);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${p.name}</span><span class="mono" style="font-size:10px;color:var(--text3)">$${p.sal.toLocaleString()}</span><span class="mono" style="font-size:11px;font-weight:500;color:var(--green)">${p.proj}</span>`:'<span style="font-size:11px;color:var(--text3)">Empty</span>'}</div>`;
+function renderSel(){
+  const el=document.getElementById('selContracts');
+  let used=0,gain=0;
+  el.innerHTML=CONTRACT_TYPES.map(type=>{
+    const c=selection[type];if(c){used+=c.prem*100;gain+=c.prem*c.val*10;}
+    const premFmt=c?(c.prem>=100?'$'+c.prem.toLocaleString():'$'+c.prem.toFixed(2)):'';
+    return `<div class="lslot"><span class="lspos" style="font-size:9px">${type}</span>${c?`<span style="font-size:11px;font-weight:500;color:var(--text);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.sym} $${c.strike.toLocaleString()}</span><span class="mono" style="font-size:10px;color:var(--text3)">${premFmt}</span><span class="mono" style="font-size:11px;font-weight:500;color:var(--green)">${c.delta.toFixed(2)}</span>`:'<span style="font-size:11px;color:var(--text3)">Empty</span>'}</div>`;
   }).join('');
-  const rem=50000-used;
+  const rem=10000-used;
   document.getElementById('salUsed').textContent='$'+used.toLocaleString();
   document.getElementById('salLeft').textContent='$'+rem.toLocaleString();
   document.getElementById('salLeft').style.color=rem<0?'var(--red)':'var(--green)';
-  document.getElementById('projTot').textContent=proj.toFixed(1);
-  const pct=used/50000*100;
+  document.getElementById('projTot').textContent='$'+gain.toFixed(0);
+  const pct=used/10000*100;
   document.getElementById('salBar').style.width=Math.min(100,pct)+'%';
   document.getElementById('salBar').style.background=rem<0?'var(--red)':'var(--blue)';
 }
-function optLineup(){
-  const sorted=[...PLAYERS].sort((a,b)=>b.val-a.val);
-  lineup={PG:null,SG:null,SF:null,PF:null,C:null,G:null,F:null,UTIL:null};
-  let bud=50000;
-  SLOTS.forEach(pos=>{
-    const ok=sorted.filter(p=>(p.pos===pos||((pos==='G')&&(p.pos==='PG'||p.pos==='SG'))||((pos==='F')&&(p.pos==='SF'||p.pos==='PF'))||(pos==='UTIL'))&&!Object.values(lineup).some(l=>l&&l.name===p.name)&&p.sal<=bud);
-    if(ok[0]){lineup[pos]=ok[0];bud-=ok[0].sal;}
+function optContracts(){
+  const sorted=[...CONTRACTS].sort((a,b)=>b.val-a.val);
+  selection={CALL:null,PUT:null,SPREAD:null,STRANGLE:null,COVERED:null};
+  let bud=10000;
+  CONTRACT_TYPES.forEach(type=>{
+    const ok=sorted.filter(c=>c.type===type&&!Object.values(selection).some(s=>s&&s.sym===c.sym&&s.strike===c.strike)&&c.prem*100<=bud);
+    if(ok[0]){selection[type]=ok[0];bud-=ok[0].prem*100;}
   });
-  renderP();renderLU();
+  renderC();renderSel();
 }
-renderP();renderLU();
+renderC();renderSel();
 
 // PORTFOLIO
 function renderPort(){
-  const sp=[{n:'NBA',r:'+22.1%',p:78,c:'var(--red)'},{n:'MLB',r:'+14.8%',p:60,c:'var(--green)'},{n:'NFL',r:'+8.2%',p:42,c:'var(--blue)'},{n:'Kalshi',r:'+31.4%',p:95,c:'var(--purple)'}];
+  const sp=[{n:'Stocks',r:'+22.1%',p:78,c:'var(--blue)'},{n:'Crypto',r:'+31.4%',p:95,c:'var(--purple)'},{n:'Futures',r:'+14.8%',p:60,c:'var(--green)'},{n:'Options',r:'+8.2%',p:42,c:'var(--amber)'}];
   document.getElementById('sportBD').innerHTML=sp.map(s=>`<div class="splr"><span class="splname">${s.n}</span><div class="splbar"><div class="splfill" style="width:${s.p}%;background:${s.c}"></div></div><span class="mono" style="font-size:11px;font-weight:500;color:${s.c};width:42px;text-align:right">${s.r}</span></div>`).join('');
-  const mk=[{n:'Spreads',r:'+12.4%',p:55,c:'var(--blue)'},{n:'Props',r:'+28.6%',p:88,c:'var(--green)'},{n:'Totals',r:'+6.1%',p:38,c:'var(--amber)'},{n:'Parlays',r:'+44.2%',p:100,c:'var(--purple)'}];
+  const mk=[{n:'Calls',r:'+28.6%',p:88,c:'var(--green)'},{n:'Puts',r:'+12.4%',p:55,c:'var(--blue)'},{n:'Spreads',r:'+44.2%',p:100,c:'var(--purple)'},{n:'Multi-Leg',r:'+6.1%',p:38,c:'var(--amber)'}];
   document.getElementById('mktBD').innerHTML=mk.map(m=>`<div style="display:flex;align-items:center;gap:8px;margin-bottom:7px"><span style="font-size:11px;font-weight:500;color:var(--text);width:58px">${m.n}</span><div style="flex:1;height:4px;background:var(--border2);border-radius:2px;overflow:hidden"><div style="height:100%;border-radius:2px;width:${m.p}%;background:${m.c}"></div></div><span class="mono" style="font-size:11px;font-weight:500;color:${m.c};width:42px;text-align:right">${m.r}</span></div>`).join('');
-  const ob=[{ic:'🏀',bg:'rgba(232,69,69,.15)',pick:'Knicks -4.5',game:'NYK @ BOS',odds:'-108',wager:'$50',pnl:'+$46.30',live:true},{ic:'⚾',bg:'rgba(29,185,122,.15)',pick:'Ohtani o8.5 Ks',game:'LAA vs HOU',odds:'-115',wager:'$30',pnl:'+$26.09',live:true},{ic:'📈',bg:'rgba(165,110,255,.15)',pick:'Mets 90+ wins',game:'Kalshi Market',odds:'68¢',wager:'$25',pnl:'+$11.76',live:false},{ic:'🏈',bg:'rgba(43,111,245,.15)',pick:'Mahomes o229.5 yds',game:'KC vs BAL',odds:'-115',wager:'$40',pnl:'+$34.78',live:false}];
+  const ob=[{ic:'📊',bg:'rgba(43,111,245,.15)',pick:'AAPL $185 Call',game:'CBOE · Exp May 17',odds:'$3.40',wager:'$340',pnl:'+$86.00',live:true},{ic:'₿',bg:'rgba(165,110,255,.15)',pick:'BTC Long',game:'Spot · $68,420',odds:'$68,420',wager:'$500',pnl:'+$142.30',live:true},{ic:'🔀',bg:'rgba(29,185,122,.15)',pick:'SPY Iron Condor',game:'Exp May 17 · $520-530',odds:'$2.10',wager:'$210',pnl:'+$48.22',live:false},{ic:'🛢',bg:'rgba(245,166,35,.15)',pick:'CL Crude Long',game:'Jun Futures · $82.40',odds:'$82.40',wager:'$400',pnl:'+$78.40',live:false}];
   document.getElementById('openBets').innerHTML=ob.map(b=>`<div style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border)"><div style="width:30px;height:30px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;background:${b.bg};flex-shrink:0">${b.ic}</div><div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:7px"><span style="font-size:12px;font-weight:500;color:var(--text)">${b.pick}</span>${b.live?'<span class="oblive">LIVE</span>':''}</div><div style="font-size:11px;color:var(--text2);margin-top:1px">${b.game} · ${b.odds}</div></div><div style="text-align:right"><div class="mono" style="font-size:12px;font-weight:600;color:var(--green)">${b.pnl}</div><div style="font-size:10px;color:var(--text3)">${b.wager} risked</div></div></div>`).join('');
   document.querySelector('#openBets div:last-child').style.borderBottom='none';
-  const hist=[{d:'Apr 13',p:'Celtics -3.5',s:'NBA',o:'-110',w:'$50',r:'win',pl:'+$45.45'},{d:'Apr 13',p:'Dodgers ML',s:'MLB',o:'-138',w:'$30',r:'win',pl:'+$21.74'},{d:'Apr 12',p:'Chiefs -6.5',s:'NFL',o:'-112',w:'$40',r:'loss',pl:'-$40.00'},{d:'Apr 12',p:'Jokic o48.5',s:'NBA',o:'+104',w:'$25',r:'win',pl:'+$26.00'},{d:'Apr 11',p:'Lakers u229.5',s:'NBA',o:'-108',w:'$35',r:'push',pl:'$0.00'},{d:'Apr 11',p:'Mets +1.5',s:'MLB',o:'-145',w:'$50',r:'win',pl:'+$34.48'},{d:'Apr 10',p:'4-leg parlay',s:'Multi',o:'+680',w:'$20',r:'loss',pl:'-$20.00'},{d:'Apr 10',p:'Thunder -4',s:'NBA',o:'-108',w:'$45',r:'win',pl:'+$41.67'}];
+  const hist=[{d:'Apr 13',p:'AAPL $190 Call',s:'Options',o:'+$4.20',w:'$420',r:'win',pl:'+$180.00'},{d:'Apr 13',p:'BTC Long',s:'Crypto',o:'+2.9%',w:'$500',r:'win',pl:'+$145.00'},{d:'Apr 12',p:'TSLA Put',s:'Options',o:'-$2.10',w:'$210',r:'loss',pl:'-$210.00'},{d:'Apr 12',p:'ETH Long',s:'Crypto',o:'+1.4%',w:'$300',r:'win',pl:'+$42.00'},{d:'Apr 11',p:'NQ Short',s:'Futures',o:'-0.8%',w:'$400',r:'push',pl:'$0.00'},{d:'Apr 11',p:'SPY $525 Call',s:'Options',o:'+$1.80',w:'$180',r:'win',pl:'+$86.40'},{d:'Apr 10',p:'4-leg strategy',s:'Multi',o:'+680',w:'$20',r:'loss',pl:'-$20.00'},{d:'Apr 10',p:'GLD Futures',s:'Futures',o:'+0.6%',w:'$450',r:'win',pl:'+$41.67'}];
   document.getElementById('betHist').innerHTML=hist.map(h=>`<tr><td style="color:var(--text3)">${h.d}</td><td style="font-weight:500">${h.p}</td><td style="color:var(--text2)">${h.s}</td><td class="mono">${h.o}</td><td class="mono">${h.w}</td><td><span class="br ${h.r[0]}">${h.pl}</span></td></tr>`).join('');
   drawChart();
 }
@@ -715,25 +716,25 @@ function drawChart(){
   ctx.fillText('+$110',4,20);ctx.fillText('$0',4,H-4);
 }
 
-// PARLAY LAB
+// STRATEGY BUILDER
 const PLEGS=[
-  {pick:'Knicks -4.5',game:'NYK @ BOS',odds:'-108',corr:'high',cl:'Correlated'},
-  {pick:'Jalen Brunson o28.5 pts',game:'NYK @ BOS',odds:'+105',corr:'high',cl:'Correlated'},
-  {pick:'Ohtani o8.5 Ks',game:'LAA vs HOU',odds:'-118',corr:'low',cl:'Neutral'},
-  {pick:'Celtics ML',game:'NYK @ BOS',odds:'+105',corr:'neg',cl:'Negative'},
+  {pick:'AAPL $185 Call',game:'Exp: May 17 · Delta 0.52',odds:'+320',corr:'high',cl:'Correlated'},
+  {pick:'TSLA $170 Put',game:'Exp: May 17 · Delta -0.51',odds:'-118',corr:'high',cl:'Correlated'},
+  {pick:'BTC $70K Call',game:'Exp: May 31 · Delta 0.48',odds:'+240',corr:'low',cl:'Neutral'},
+  {pick:'SPY $520 Put',game:'Exp: May 17 · Delta -0.38',odds:'+105',corr:'neg',cl:'Negative'},
 ];
-const ADD_LEGS=[{pick:'Thunder ML',game:'OKC vs SAC',odds:'-185'},{pick:'Mahomes o229.5 yds',game:'KC vs BAL',odds:'-115'},{pick:'Nuggets -3.5',game:'LAL vs DEN',odds:'-108'},{pick:'Mets +1.5',game:'MET vs PHI',odds:'-145'},{pick:'Warriors ML',game:'GSW vs PHX',odds:'-128'},{pick:'Dodgers u8.5',game:'LAD vs SF',odds:'-110'}];
+const ADD_LEGS=[{pick:'NVDA $870 Call',game:'Exp: May 17 · IV 63.8%',odds:'+280'},{pick:'ETH Long',game:'Spot · Current: $3,241',odds:'+190'},{pick:'NQ Futures Short',game:'Jun Contract · 19,840',odds:'-115'},{pick:'SOL Long',game:'Spot · Current: $148',odds:'+240'},{pick:'QQQ Iron Condor',game:'Exp: Jun 21 · Width $5',odds:'+180'},{pick:'GLD Covered Call',game:'Exp: Jun 21 · Strike $232',odds:'-145'}];
 function combOdds(legs){
   let d=1;legs.forEach(l=>{const o=parseInt(l.odds);d*=o>0?1+o/100:1+100/Math.abs(o);});
   const am=d>=2?Math.round((d-1)*100):Math.round(-100/(d-1));
   return (am>0?'+':'')+am;
 }
-function hitProb(legs){let p=1;legs.forEach(l=>{const o=parseInt(l.odds);p*=o>0?100/(o+100):Math.abs(o)/(Math.abs(o)+100);});return(p*100).toFixed(1)+'%';}
+function calcPoP(legs){let p=1;legs.forEach(l=>{const o=parseInt(l.odds);p*=o>0?100/(o+100):Math.abs(o)/(Math.abs(o)+100);});return(p*100).toFixed(1)+'%';}
 function renderLegs(){
-  document.getElementById('parlayLegs').innerHTML=PLEGS.map((l,i)=>`<div class="pleg"><span class="lnum">${i+1}</span><div class="linfo"><div class="lpick">${l.pick}</div><div class="lgame">${l.game}</div></div><span class="cbadge ${l.corr}">${l.cl}</span><span class="lodds">${l.odds}</span><button class="remleg" onclick="remLeg(${i})">×</button></div>`).join('');
+  document.getElementById('strategyLegs').innerHTML=PLEGS.map((l,i)=>`<div class="pleg"><span class="lnum">${i+1}</span><div class="linfo"><div class="lpick">${l.pick}</div><div class="lgame">${l.game}</div></div><span class="cbadge ${l.corr}">${l.cl}</span><span class="lodds">${l.odds}</span><button class="remleg" onclick="remLeg(${i})">×</button></div>`).join('');
   document.getElementById('legCnt').textContent=PLEGS.length;
   const odds=combOdds(PLEGS);document.getElementById('plOdds').textContent=odds;
-  document.getElementById('plProb').textContent=hitProb(PLEGS);
+  document.getElementById('plProb').textContent=calcPoP(PLEGS);
   calcPP();
 }
 function remLeg(i){PLEGS.splice(i,1);renderLegs();}
@@ -747,10 +748,10 @@ function calcPP(){
   const ev=3.8;document.getElementById('evD').textContent=(ev>0?'+':'')+ev+'%';
   document.getElementById('evGF').style.width=Math.min(100,Math.max(0,50+ev*10))+'%';
 }
-document.getElementById('addLegsG').innerHTML=ADD_LEGS.map((l,i)=>`<div class="sugg" onclick="addLeg(${i})"><div class="plusbtn">+</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500;color:var(--text)">${l.pick}</div><div style="font-size:10px;color:var(--text2)">${l.game}</div></div><span class="mono" style="font-size:12px;color:var(--text2)">${l.odds}</span></div>`).join('');
-document.getElementById('sugLegs').innerHTML=ADD_LEGS.slice(0,3).map((l,i)=>`<div class="sugg" onclick="addLeg(${i})"><div class="plusbtn">+</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500;color:var(--text)">${l.pick}</div><div style="font-size:10px;color:var(--text2)">${l.odds}</div></div><span class="badge val">+EV</span></div>`).join('');
-function addLeg(i){const l=ADD_LEGS[i];PLEGS.push({pick:l.pick,game:l.game,odds:l.odds,corr:'low',cl:'Neutral'});renderLegs();}
-window.addLeg=addLeg;
+document.getElementById('addLegsG').innerHTML=ADD_LEGS.map((l,i)=>`<div class="sugg" onclick="addSLeg(${i})"><div class="plusbtn">+</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500;color:var(--text)">${l.pick}</div><div style="font-size:10px;color:var(--text2)">${l.game}</div></div><span class="mono" style="font-size:12px;color:var(--text2)">${l.odds}</span></div>`).join('');
+document.getElementById('sugLegs').innerHTML=ADD_LEGS.slice(0,3).map((l,i)=>`<div class="sugg" onclick="addSLeg(${i})"><div class="plusbtn">+</div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500;color:var(--text)">${l.pick}</div><div style="font-size:10px;color:var(--text2)">${l.odds}</div></div><span class="badge val">+EV</span></div>`).join('');
+function addSLeg(i){const l=ADD_LEGS[i];PLEGS.push({pick:l.pick,game:l.game,odds:l.odds,corr:'low',cl:'Neutral'});renderLegs();}
+window.addSLeg=addSLeg;
 renderLegs();
 </script>
 </body>
